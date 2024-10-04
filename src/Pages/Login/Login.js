@@ -14,7 +14,7 @@ function Login() {
 
   const handleRegularLogin = () => {
     // Simulate regular login (replace with your actual logic)
-    navigate('/user'); // Navigate to the regular user home page on successful regular login
+    navigate('/user'); // Navigate to the regular user home page on successful regular loginsssss
   };
 
   return (
