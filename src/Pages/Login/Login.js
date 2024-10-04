@@ -1,7 +1,7 @@
 import React from "react";
 import './Login.css';
 import logo from './lccb.png';
-import backgroundImage from './lccbwp.png';
+import backgroundImage from './lccbwp.jpg';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 
 function Login() {
