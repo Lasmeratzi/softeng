@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Pages/Login/Login'; 
 import Ahome from './Pages/Ahome/Ahome';  // Admin home
 import Shome from './Pages/Shome/Shome';  // User home
-import About from './Pages/About/About'; // About page
+import About from './Pages/About/About1'; // About page
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
