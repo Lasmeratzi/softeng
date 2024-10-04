@@ -1,7 +1,7 @@
 import React from "react";
 import './Login.css';
 import logo from './lccb.png';
-import backgroundImage from './lccbwp.png';
+import backgroundImage from './lccbwp.jpg';
 import { useNavigate } from 'react-router-dom'; // Import useNavigate hook
 
 function Login() {
@@ -14,7 +14,7 @@ function Login() {
 
   const handleRegularLogin = () => {
     // Simulate regular login (replace with your actual logic)
-    navigate('/user'); // Navigate to the regular user home page on successful regular login
+    navigate('/user'); // Navigate to the regular user home page on successful regular loginsssss
   };
 
   return (
