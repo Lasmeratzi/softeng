@@ -54,34 +54,42 @@
   transition: color 0.3s ease;
 }
 
-.dropdown-container:hover .dropdown {
-  display: block;
+/* Dropdown styles */
+.dropdowns {
+  display: none; /* Hide by default */
+  position: absolute; /* Position dropdown below CLUBS */
+  background-color: white; /* Background for dropdown */
+  z-index: 100; /* Ensure it's above other elements */
+  padding: 10px;
+  border: 1px solid #321bdd; /* Border color */
 }
 
-.dropdown {
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.8);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  padding: 0;
-  margin: 0;
-  list-style: none;
-  z-index: 1000;
-  display: none;
-  border-radius: 5px;
+.nav-links li:hover .dropdowns {
+  display: block; /* Show on hover */
 }
 
-.dropdown-item {
-  display: block;
-  padding: 10px 20px;
-  color: white;
-  text-decoration: none;
+.dropdowns label {
   font-family: 'Manuka', sans-serif;
-  font-size: 2rem;
-  transition: background-color 0.3s;
+  font-size: 1.8rem;
+  margin-right: 10px;
+  color: #321bdd; /* Use a color consistent with your theme */
 }
 
-.dropdown-item:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.dropdowns select {
+  font-family: 'Manuka', sans-serif;
+  font-size: 1.8rem;
+  padding: 10px;
+  border: 2px solid #321bdd; /* Match your theme */
+  border-radius: 5px;
+  background-color: white; /* Background color for better contrast */
+  color: #321bdd; /* Text color */
+  transition: border-color 0.3s ease;
+}
+
+.dropdowns select:hover,
+.dropdowns select:focus {
+  border-color: #19c8ff; /* Change border color on hover/focus */
+  outline: none; /* Remove default outline */
 }
 
 .logout-button {
@@ -95,8 +103,6 @@
   font-weight: bold;
   font-family: 'Montserrat', sans-serif;
 }
-
-
 
 /* Event card styles with color variations */
 .event-card {
@@ -112,7 +118,6 @@
   transition: background-color 0.3s ease;
 }
 
-
 .event-card:nth-child(2) {
   background: linear-gradient(to right, #FF7A00, #4C2400, #000);
 }
@@ -124,7 +129,7 @@
 .event-card:nth-child(4) {
   background: linear-gradient(to right, #7F00FF, #26004C, #000);
 }
- 
+
 .event-card:nth-child(5) {
   background: linear-gradient(to right, #321BDD, #0f0842, #000);
 }
