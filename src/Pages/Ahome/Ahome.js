@@ -11,8 +11,14 @@ function Ahome() {
     navigate('/');
   };
 
-  const preventNavigation = (e) => {
-    e.preventDefault(); 
+  const handleNavigation = (path) => (e) => {
+    e.preventDefault(); // Prevent default anchor behavior
+    navigate(path); // Use navigate to go to the new route
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Prevent default form submission
+    // Add form submission logic here if needed
   };
 
   return (
@@ -21,17 +27,17 @@ function Ahome() {
         <img src={logo} alt="LCCB Logo" className="logo" />
         <h1 className="site-title">LCCB - CLUBSPHERE</h1>
         <ul className="nav-links">
-          <li><a href="/home" onClick={preventNavigation}>HOME</a></li> 
-          <li><a href="/about">ABOUT</a></li>
-          <li><a href="/ssg">SSG</a></li>
-          <li><a href="/clubs">CLUBS</a></li>
+          <li><a href="/home" onClick={handleNavigation('/home')}>HOME</a></li> 
+          <li><a href="/about" onClick={handleNavigation('/about')}>ABOUT</a></li>
+          <li><a href="/ssg" onClick={handleNavigation('/ssg')}>SSG</a></li>
+          <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
         </ul>
         <button className="logout-button" onClick={handleLogout}>Log out</button>
       </nav>
 
       <div className="main-section" style={{ backgroundImage: `url(${background})` }}>
         <h2 className="upcoming-title">UPCOMING EVENTS</h2>
-        <form className="events-form">
+        <form className="events-form" onSubmit={handleSubmit}>
           <h1>Department</h1>
           <input type="text" placeholder="Department" className="input-field" />
           <h1>Club Name</h1>
@@ -41,8 +47,8 @@ function Ahome() {
           <h1>Venue</h1>
           <input type="text" placeholder="Venue" className="input-field" />
           <h1>Date</h1>
-          <input type="date" placeholder="Date" className="input-field" />
-          <button className="submit-button">Submit</button>
+          <input type="date" className="input-field" />
+          <button type="submit" className="submit-button">Submit</button>
         </form>
       </div>
     </div>

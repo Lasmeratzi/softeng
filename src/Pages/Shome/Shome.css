@@ -1,158 +1,202 @@
+/* General layout and styles */
 .shome-container {
-    width: 100%;
-    height: 100vh;
-    position: relative;
-  }
-  
-  .logo {
-    width: 70px;
-    height: auto;
-  }
-  
-  .site-title {
-    font-family: 'Manuka', sans-serif;
-    font-size: 3.5rem;
-    font-weight: bold;
-    margin-left: 20px;
-  }
-  
-  .navbar {
-    display: flex;
-    align-items: center;
-    padding: 0px 20px;
-    background-color: #321bdd; 
-    color: white;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  
-  .logo {
-    width: 70px;
-    height: auto;
-    margin: 0;
-  }
-  
-  .site-title {
-    font-family: 'Manuka', sans-serif;
-    font-size: 3.5rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    padding-right: 0px;
-    padding-left: 30px;
-    margin: 10px 0;
-  }
-  
-  .nav-links {
-    font-family: 'Manuka', sans-serif;
-    font-size: 2.5rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    list-style: none;
-    display: flex;
-    gap: 20px;
-    margin-left: auto;
-    margin-right: 100px;
-  }
-  
-  .nav-links li a {
-    position: relative;
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    margin: 0px 25px;
-    padding-bottom: 5px;
-    transition: color 0.3s ease;
-  }
-  
-  .nav-links li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    border-radius: 3px;
-    height: 3px; 
-    background-color: #19c8ff; 
-    transform: scaleX(0); 
-    transform-origin: bottom right; 
-    transition: transform 0.3s ease; 
-  }
-  
-  .nav-links li a:hover::after {
-    transform: scaleX(1); 
-    transform-origin: bottom left; 
-  }
-  
-  .nav-links li a:hover {
-    color: #19c8ff; 
-  }
-  
-  .logout-button {
-    background-color: #19c8ff; 
-    color: white;
-    padding: 10px 25px;
-    margin-left: 100px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  
-  .main-section {
-    background: url('./lccb2.png') rgba(255, 255, 255, 0.7);
-    background-size: cover;
-    background-position: center;
-    padding: 50px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .event-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    width: 70%;
-    margin: 10px 0;
-    padding: 20px;
-  }
-  
-  .event-logo {
-    width: 100px;
-    height: 100px;
-  }
-  
-  .event-details {
-    flex: 2;
-    padding-left: 20px;
-  }
-  
-  .event-venue {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-right: 20px;
-  }
-  
-  .event-details h2, .event-details h3 {
-    font-family: 'Manuka', sans-serif;
-  }
-  
-  .event-venue h4, .event-venue p {
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  .upcoming-title {
-    font-family: 'Manuka', sans-serif;
-    font-size: 6.0rem;
-    color: #321bdd;
-    margin-bottom: 30px;
-    text-align: center;
-  }
-  
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.logo {
+  width: 70px;
+  height: auto;
+}
+
+.site-title {
+  font-family: 'Manuka', sans-serif;
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-left: 20px;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: #321bdd; 
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-links {
+  font-family: 'Manuka', sans-serif;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-left: auto;
+  margin-right: 100px;
+}
+
+.nav-links li {
+  position: relative;
+}
+
+.nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  margin: 0px 25px;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+.dropdown-container:hover .dropdown {
+  display: block;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  z-index: 1000;
+  display: none;
+  border-radius: 5px;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  font-family: 'Manuka', sans-serif;
+  font-size: 2rem;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.logout-button {
+  background-color: #19c8ff;
+  color: white;
+  padding: 10px 25px;
+  margin-left: 100px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Main section background */
+.main-section {
+  background: url('./lccb2.png') rgba(255, 255, 255, 0.7);
+  background-size: cover;
+  background-position: center;
+  padding: 50px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Event card styles with color variations */
+.event-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  border-radius: 0px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 70%;
+  margin: 10px 0;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+}
+
+
+.event-card:nth-child(2) {
+  background: linear-gradient(to right, #FF7A00, #4C2400, #000);
+}
+
+.event-card:nth-child(3) {
+  background: linear-gradient(to right, #FBFF34, #4B4C0F, #000);
+}
+
+.event-card:nth-child(4) {
+  background: linear-gradient(to right, #7F00FF, #26004C, #000);
+}
+
+.event-card:nth-child(5) {
+  background: linear-gradient(to right, #321BDD, #0f0842, #000);
+}
+
+.event-card:hover {
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  transform: scale(1.02);
+  transition: all 0.3s ease-in-out;
+}
+
+.event-logo {
+  width: 100px;
+  height: 100px;
+}
+
+.event-details {
+  flex: 2;
+  padding-left: 20px;
+}
+
+.event-details h2,
+.event-details h3 {
+  font-family: 'Manuka', sans-serif;
+  font-size: 30px; /* Specific size for event-details h2 */
+}
+
+.event-venue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-right: 20px;
+}
+
+.event-venue h4,
+.event-venue p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+}
+
+.upcoming-title {
+  padding-top: 10%;
+  font-family: 'Manuka', sans-serif;
+  font-size: 4.0rem;
+  color: #321bdd;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* Global h2 styles */
+h2 {
+  font-family: 'Manuka', sans-serif;
+  font-size: 32px; /* Adjust size as needed */
+  color: #321bdd; /* Change color if needed */
+  margin: 15px 0; /* Add spacing */
+  text-align: left; /* Align text */
+  line-height: 1.4; /* Adjust line height for readability */
+}
+
+/* Specific h2 styles within event-details */
+.event-details h2 {
+  font-size: 30px; /* Specific size */
+  color: #ffffff; /* White color for better contrast on event cards */
+  margin: 10px 0; /* Adjust margin */
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+}
