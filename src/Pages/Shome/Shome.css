@@ -96,16 +96,7 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Main section background */
-.main-section {
-  background: url('./lccb2.png') rgba(255, 255, 255, 0.7);
-  background-size: cover;
-  background-position: center;
-  padding: 50px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 /* Event card styles with color variations */
 .event-card {
@@ -133,7 +124,7 @@
 .event-card:nth-child(4) {
   background: linear-gradient(to right, #7F00FF, #26004C, #000);
 }
-
+ 
 .event-card:nth-child(5) {
   background: linear-gradient(to right, #321BDD, #0f0842, #000);
 }
