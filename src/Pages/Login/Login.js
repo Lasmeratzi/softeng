@@ -9,7 +9,7 @@ function Login() {
 
   const handleAdminLogin = () => {
     // Simulate admin login (replace with your actual logic)
-    navigate('/admin'); // Navigate to the admin home page on successful admin login
+    navigate('/shtm'); // Navigate to the admin home page on successful admin login
   };
 
   const handleRegularLogin = () => {
