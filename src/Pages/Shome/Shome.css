@@ -163,28 +163,29 @@
 
 /* Individual event card colors with even lighter gradients */
 .event-card1 {
-  background: linear-gradient(to bottom right, #FF7A00, #FFE6B2); /* Lighter gradient */
+  background: linear-gradient(to bottom right, #FF7A00,  #ffaf66); /* Lighter gradient */
 }
 
 .event-card2 {
-  background: linear-gradient(to bottom right, #FBFF34, #F8FFA3); /* Lighter gradient */
+  background: linear-gradient(to bottom right, #FBFF34, #fbff5c); /* Lighter gradient */
 }
 
 .event-card3 {
-  background: linear-gradient(to bottom right, #5900b3, #D6B3FF); /* Lighter gradient */
+  background: linear-gradient(to bottom right, #2c0554, #8a4cc9
+  ); /* Lighter gradient */
 }
 
 .event-card4 {
-  background: linear-gradient(to bottom right, #0029FF, #A3C1FF); /* Lighter gradient */
+  background: linear-gradient(to bottom right, #001cb2  , #2d43b1); /* Lighter gradient */
 }
 
 /* Image styling */
 .event-card img {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   object-fit: cover;
-  margin-left: 3rem;
-  margin-top: 1rem;
+  margin-left: 1rem;
+  margin-top: 0.1rem;
 }
 
 /* Styling for event logos */
@@ -200,12 +201,14 @@
   text-align: center;
 }
 
-.event-details h3 {
-  font-size: 1.2rem;
-  color: #333;
-  margin-bottom: 10px;
+.event-details {
+  padding: 15px;
+  text-align: center;
+  background-color: white; 
+  border: 1 px solid #ccc; 
+  border-radius: 2px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
 }
-
 .event-details h2 {
   font-size: 1.5rem;
   color: #333;

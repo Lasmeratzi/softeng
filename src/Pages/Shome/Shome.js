@@ -2,6 +2,10 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Shome.css';
 import logo from './lccb.png';
+import SHTMLogo from './SHTM.png';
+import SBITLogo from './SBIT.png';
+import SARFAIDLogo from './SARFAID.png';
+import SSLATELogo from './SSLATE.png';
 
 function Shome() {
   const navigate = useNavigate();
@@ -63,12 +67,11 @@ function Shome() {
         <h2 className="upcoming-title">UPCOMING EVENTS</h2>
 
         <div className="event-cards-container">
-          {/* Render Event Cards */}
           <div className="event-card event-card1" key={1}>
-            <img src={logo} alt="Department Logo" className="event-logo" />
+            <img src={SHTMLogo} alt="SHTM Logo" className="event-logo" />
             <div className="event-details">
-              <h3>Department Club</h3>
-              <h2>EVENT </h2>
+              <h3>SHTM Club</h3>
+              <h2>EVENT</h2>
             </div>
             <div className="event-venue">
               <h4>Venue:</h4>
@@ -77,10 +80,10 @@ function Shome() {
           </div>
 
           <div className="event-card event-card2" key={2}>
-            <img src={logo} alt="Department Logo" className="event-logo" />
+            <img src={SBITLogo} alt="SBIT Logo" className="event-logo" />
             <div className="event-details">
-              <h3>Department Club</h3>
-              <h2>EVENT </h2>
+              <h3>SBIT Club</h3>
+              <h2>EVENT</h2>
             </div>
             <div className="event-venue">
               <h4>Venue:</h4>
@@ -89,10 +92,10 @@ function Shome() {
           </div>
 
           <div className="event-card event-card3" key={3}>
-            <img src={logo} alt="Department Logo" className="event-logo" />
+            <img src={SARFAIDLogo} alt="SARFAID Logo" className="event-logo" />
             <div className="event-details">
-              <h3>Department Club</h3>
-              <h2>EVENT </h2>
+              <h3>SARFAID Club</h3>
+              <h2>EVENT</h2>
             </div>
             <div className="event-venue">
               <h4>Venue:</h4>
@@ -101,10 +104,10 @@ function Shome() {
           </div>
 
           <div className="event-card event-card4" key={4}>
-            <img src={logo} alt="Department Logo" className="event-logo" />
+            <img src={SSLATELogo} alt="SSLATE Logo" className="event-logo" />
             <div className="event-details">
-              <h3>Department Club</h3>
-              <h2>EVENT </h2>
+              <h3>SSLATE Club</h3>
+              <h2>EVENT</h2>
             </div>
             <div className="event-venue">
               <h4>Venue:</h4>
