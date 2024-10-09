@@ -7,7 +7,14 @@ import SBITLogo from './SBIT.png';
 import SARFAIDLogo from './SARFAID.png';
 import SSLATELogo from './SSLATE.png';
 
-function Shome() {
+const clubs = [
+  { name: 'SHTM', logo: SHTMLogo, key: 1 },
+  { name: 'SBIT', logo: SBITLogo, key: 2 },
+  { name: 'SARFAID', logo: SARFAIDLogo, key: 3 },
+  { name: 'SSLATE', logo: SSLATELogo, key: 4 },
+];
+
+const Shome = () => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -34,29 +41,15 @@ function Shome() {
           <li>
             <a href="#" onClick={preventNavigation}>CLUBS</a>
             <div className="dropdowns">
-              <label>SBIT:</label>
-              <select onChange={handleDropdownChange}>
-                <option value="IT1">IT1</option>
-                <option value="IT2">IT2</option>
-              </select>
-              
-              <label>SHTM:</label>
-              <select onChange={handleDropdownChange}>
-                <option value="HM1">HM1</option>
-                <option value="HM2">HM2</option>
-              </select>
-
-              <label>SARFAID:</label>
-              <select onChange={handleDropdownChange}>
-                <option value="ACR1">ACR1</option>
-                <option value="ARC2">ARC2</option>
-              </select>
-
-              <label>SSLATE:</label>
-              <select onChange={handleDropdownChange}>
-                <option value="SL1">SL1</option>
-                <option value="SL2">SL2</option>
-              </select>
+              {['SBIT', 'SHTM', 'SARFAID', 'SSLATE'].map(club => (
+                <div key={club}>
+                  <label>{club}:</label>
+                  <select onChange={handleDropdownChange}>
+                    <option value="1">{club}1</option>
+                    <option value="2">{club}2</option>
+                  </select>
+                </div>
+              ))}
             </div>
           </li>
         </ul>
@@ -67,57 +60,23 @@ function Shome() {
         <h2 className="upcoming-title">UPCOMING EVENTS</h2>
 
         <div className="event-cards-container">
-          <div className="event-card event-card1" key={1}>
-            <img src={SHTMLogo} alt="SHTM Logo" className="event-logo" />
-            <div className="event-details">
-              <h3>SHTM Club</h3>
-              <h2>EVENT</h2>
+          {clubs.map(({ name, logo, key }) => (
+            <div className={`event-card event-card${key}`} key={key}>
+              <img src={logo} alt={`${name} Logo`} className="event-logo" />
+              <div className="event-details">
+                <h3>{name} Club</h3>
+                <h2>EVENT</h2>
+              </div>
+              <div className="event-venue">
+                <h4>Venue:</h4>
+                <p>00/00/0000</p>
+              </div>
             </div>
-            <div className="event-venue">
-              <h4>Venue:</h4>
-              <p>00/00/0000</p>
-            </div>
-          </div>
-
-          <div className="event-card event-card2" key={2}>
-            <img src={SBITLogo} alt="SBIT Logo" className="event-logo" />
-            <div className="event-details">
-              <h3>SBIT Club</h3>
-              <h2>EVENT</h2>
-            </div>
-            <div className="event-venue">
-              <h4>Venue:</h4>
-              <p>00/00/0000</p>
-            </div>
-          </div>
-
-          <div className="event-card event-card3" key={3}>
-            <img src={SARFAIDLogo} alt="SARFAID Logo" className="event-logo" />
-            <div className="event-details">
-              <h3>SARFAID Club</h3>
-              <h2>EVENT</h2>
-            </div>
-            <div className="event-venue">
-              <h4>Venue:</h4>
-              <p>00/00/0000</p>
-            </div>
-          </div>
-
-          <div className="event-card event-card4" key={4}>
-            <img src={SSLATELogo} alt="SSLATE Logo" className="event-logo" />
-            <div className="event-details">
-              <h3>SSLATE Club</h3>
-              <h2>EVENT</h2>
-            </div>
-            <div className="event-venue">
-              <h4>Venue:</h4>
-              <p>00/00/0000</p>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
     </div>
   );
-}
+};
 
 export default Shome;
