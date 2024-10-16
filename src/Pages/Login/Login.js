@@ -21,8 +21,8 @@ function Login() {
     <div className="login-container">
       <div className="left-section">
         <img src={backgroundImage} alt="LCCB Background" className="background-image" />
-        <h1 className="college-title">LA CONSOLACION</h1>
-        <h2 className="college-title2">COLLEGE - BACOLOD</h2>
+        <h1 className="college-title"></h1>
+        <h2 className="college-title2"></h2>
       </div>
       <div className="right-section">
         <img src={logo} alt="LCCB Logo" className="logo" />
