@@ -74,8 +74,7 @@ function Shome() {
               <h2>EVENT</h2>
             </div>
             <div className="event-venue">
-              <h4>Venue:</h4>
-              <p>00/00/0000</p>
+              
             </div>
           </div>
 
@@ -86,8 +85,7 @@ function Shome() {
               <h2>EVENT</h2>
             </div>
             <div className="event-venue">
-              <h4>Venue:</h4>
-              <p>00/00/0000</p>
+            
             </div>
           </div>
 
@@ -98,8 +96,7 @@ function Shome() {
               <h2>EVENT</h2>
             </div>
             <div className="event-venue">
-              <h4>Venue:</h4>
-              <p>00/00/0000</p>
+             
             </div>
           </div>
 
@@ -110,8 +107,7 @@ function Shome() {
               <h2>EVENT</h2>
             </div>
             <div className="event-venue">
-              <h4>Venue:</h4>
-              <p>00/00/0000</p>
+           
             </div>
           </div>
         </div>
