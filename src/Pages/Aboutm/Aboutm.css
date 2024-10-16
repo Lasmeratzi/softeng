@@ -1,0 +1,21 @@
+.about-container {
+    padding: 20px;
+    font-family: 'Montserrat', sans-serif; /* Use your custom font */
+    background-color: #f9f9f9; /* Light background for contrast */
+    color: #333; /* Dark text for readability */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  }
+  
+  .about-title {
+    font-size: 2.5rem;
+    color: #321bdd; /* Customize as needed */
+    margin-bottom: 20px; /* Space below the title */
+  }
+  
+  .about-text {
+    font-size: 1.2rem;
+    line-height: 1.6; /* Improved line height for readability */
+    margin-bottom: 15px; /* Space below paragraphs */
+  }
+  
