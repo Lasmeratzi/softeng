@@ -30,7 +30,7 @@ function Shtm() {
           <li><a href="/sbit" onClick={handleNavigation('/sbit')}>SBIT</a></li>
           <li><a href="/sslate" onClick={handleNavigation('/sslate')}>SSLATE</a></li>
           <li><a href="/sarfaid" onClick={handleNavigation('/sarfaid')}>SARFAID</a></li> 
-          <li><a href="/about" onClick={handleNavigation('/about')}>ABOUT</a></li>
+          <li><a href="/aboutm" onClick={handleNavigation('/aboutm')}>ABOUT</a></li>
           <li><a href="/ssg" onClick={handleNavigation('/ssg')}>SSG</a></li>
           <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
         </ul>

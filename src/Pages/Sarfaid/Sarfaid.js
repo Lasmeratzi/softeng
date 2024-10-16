@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import './Sbit.css';
+import './Sarfaid.css';
 import logo from './lccb.png'; 
 
-function Sbit() {
+function Sarfaid() {
   const navigate = useNavigate(); 
 
   const handleLogout = () => {
@@ -38,7 +38,7 @@ function Sbit() {
       </nav>
 
       <div className="main-section" >
-        <h2 className="upcoming-title11">UPCOMING SBIT EVENTS</h2>
+        <h2 className="upcoming-title11">UPCOMING SARFAID EVENTS</h2>
         <form className="events-form" onSubmit={handleSubmit}>
           <h1>Department-ID</h1>
           <input type="text" placeholder="Department" className="input-field" />
@@ -57,4 +57,4 @@ function Sbit() {
   );
 }
 
-export default Sbit;
+export default Sarfaid;
