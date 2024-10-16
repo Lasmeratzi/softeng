@@ -1,5 +1,5 @@
-/* General layout and styles */
-.shome-container {
+ /* General layout and styles */
+ .shome-container {
   width: 100%;
   height: 100vh;
   position: relative;
@@ -12,32 +12,41 @@
 
 .site-title {
   font-family: 'Manuka', sans-serif;
-  font-size: 3.5rem;
+  font-size: 2rem; 
   font-weight: bold;
-  margin-left: 20px;
+  margin-left: 10px; 
 }
 
 .navbar {
   display: flex;
   align-items: center;
-  padding: 0px 20px;
-  background-color: #321bdd; 
+  padding: 2px 10px; 
+  background-color: #321bdd;
   color: white;
   position: sticky;
   top: 0;
   z-index: 100;
 }
 
+.toggle-button {
+  display: none; 
+  background: none;
+  border: none;
+  color: white;
+  font-size: 25px; 
+  cursor: pointer;
+}
+
 .nav-links {
-  font-family: 'Manuka', sans-serif;
-  font-size: 2.5rem;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 18px; 
   font-weight: bold;
-  letter-spacing: 2px;
+  letter-spacing: 1px; 
   list-style: none;
   display: flex;
-  gap: 20px;
+  gap: 10px; 
   margin-left: auto;
-  margin-right: 100px;
+  margin-right: 20px; 
 }
 
 .nav-links li {
@@ -49,54 +58,60 @@
   text-decoration: none;
   color: white;
   font-weight: bold;
-  margin: 0px 25px;
-  padding-bottom: 5px;
-  transition: color 0.3s ease;
+  margin: 0px 10px; 
+  padding: 2px 0; 
+  transition: color 0.3s ease, border-bottom 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-links li a:hover {
+  color: #19c8ff;
+  border-bottom: 2px solid #19c8ff;
+  background-color: rgba(255, 255, 255, 0.1); 
 }
 
 /* Dropdown styles */
 .dropdowns {
-  display: none; /* Hide by default */
-  position: absolute; /* Position dropdown below CLUBS */
-  background-color: white; /* Background for dropdown */
-  z-index: 100; /* Ensure it's above other elements */
-  padding: 10px;
-  border: 1px solid #321bdd; /* Border color */
+  display: none;
+  position: absolute;
+  background-color: white;
+  z-index: 100;
+  padding: 5px; 
+  border: 1px solid #321bdd;
 }
 
 .nav-links li:hover .dropdowns {
-  display: block; /* Show on hover */
+  display: block;
 }
 
 .dropdowns label {
   font-family: 'Manuka', sans-serif;
-  font-size: 1.8rem;
-  margin-right: 10px;
-  color: #321bdd; /* Use a color consistent with your theme */
+  font-size: 1.4rem; 
+  margin-right: 5px; 
+  color: #321bdd;
 }
 
 .dropdowns select {
-  font-family: 'Manuka', sans-serif;
-  font-size: 1.8rem;
-  padding: 10px;
-  border: 2px solid #321bdd; /* Match your theme */
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1rem; 
+  padding: 5px; 
+  border: 2px solid #321bdd;
   border-radius: 5px;
-  background-color: white; /* Background color for better contrast */
-  color: #321bdd; /* Text color */
+  background-color: white;
+  color: #321bdd;
   transition: border-color 0.3s ease;
 }
 
 .dropdowns select:hover,
 .dropdowns select:focus {
-  border-color: #19c8ff; /* Change border color on hover/focus */
-  outline: none; /* Remove default outline */
+  border-color: #19c8ff;
+  outline: none;
 }
 
 .logout-button {
   background-color: #19c8ff;
   color: white;
-  padding: 10px 25px;
-  margin-left: 100px;
+  padding: 10px 10px; 
+  margin-left: 20px; 
   border: none;
   border-radius: 5px;
   cursor: pointer;
@@ -104,74 +119,18 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-/* Event card styles with color variations */
-.event-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: white;
-  border-radius: 0px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  width: 70%;
-  margin: 10px 0;
-  padding: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.event-card:nth-child(2) {
-  background: linear-gradient(to right, #FF7A00, #4C2400, #000);
-}
-
-.event-card:nth-child(3) {
-  background: linear-gradient(to right, #FBFF34, #4B4C0F, #000);
-}
-
-.event-card:nth-child(4) {
-  background: linear-gradient(to right, #7F00FF, #26004C, #000);
-}
-
-.event-card:nth-child(5) {
-  background: linear-gradient(to right, #321BDD, #0f0842, #000);
-}
-
-.event-card:hover {
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
-  transform: scale(1.02);
-  transition: all 0.3s ease-in-out;
-}
-
-.event-logo {
-  width: 100px;
-  height: 100px;
-}
-
-.event-details {
-  flex: 2;
-  padding-left: 20px;
-}
-
-.event-details h2,
-.event-details h3 {
-  font-family: 'Manuka', sans-serif;
-  font-size: 30px; /* Specific size for event-details h2 */
-}
-
-.event-venue {
+/* Main section for event cards */
+.main-section {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding-right: 20px;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
 }
 
-.event-venue h4,
-.event-venue p {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-}
-
+/* Title styling */
 .upcoming-title {
-  padding-top: 10%;
   font-family: 'Manuka', sans-serif;
   font-size: 4.0rem;
   color: #321bdd;
@@ -179,20 +138,126 @@
   text-align: center;
 }
 
-/* Global h2 styles */
-h2 {
-  font-family: 'Manuka', sans-serif;
-  font-size: 32px; /* Adjust size as needed */
-  color: #321bdd; /* Change color if needed */
-  margin: 15px 0; /* Add spacing */
-  text-align: left; /* Align text */
-  line-height: 1.4; /* Adjust line height for readability */
+.event-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
-/* Specific h2 styles within event-details */
+/* Card styles */
+.event-card {
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual event card colors with even lighter gradients */
+.event-card1 {
+  background: linear-gradient(to bottom right, #FF7A00,  #ffaf66); /* Lighter gradient */
+}
+
+.event-card2 {
+  background: linear-gradient(to bottom right, #FBFF34, #fbff5c); /* Lighter gradient */
+}
+
+.event-card3 {
+  background: linear-gradient(to bottom right, #35006b, #8a4cc9
+  ); /* Lighter gradient */
+}
+
+.event-card4 {
+  background: linear-gradient(to bottom right, #001cb2  , #193eff); /* Lighter gradient */
+}
+
+/* Image styling */
+.event-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin-left: 3rem;
+  margin-top: 1rem;
+}
+
+/* Styling for event logos */
+.event-logo {
+  width: 50px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+/* Styling for card content */
+.event-details {
+  padding: 15px;
+  text-align: center;
+}
+
+.event-details {
+  padding: 15px;
+  text-align: center;
+  background-color: white; 
+  border: 1 px solid #ccc; 
+  border-radius: 2px; 
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+}
 .event-details h2 {
-  font-size: 30px; /* Specific size */
-  color: #ffffff; /* White color for better contrast on event cards */
-  margin: 10px 0; /* Adjust margin */
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Add shadow for depth */
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.event-venue {
+  padding: 15px;
+  background: #f7f7f7;
+  border-top: 1px solid #ddd;
+}
+
+.event-venue h4 {
+  font-size: 1rem;
+  color: #888;
+}
+
+.event-venue p {
+  font-size: 0.9rem;
+  color: #333;
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none; 
+    flex-direction: column;
+    margin: 0;
+    width: 100%; 
+  }
+
+  .nav-links.active {
+    display: flex; 
+  }
+
+  .toggle-button {
+    display: block; 
+  }
+
+  .navbar {
+    flex-direction: column; 
+    padding: 5px; 
+  }
+
+  .logout-button {
+    margin-top: 10px;
+  }
+
+  .nav-links li {
+    margin-bottom: 10px;
+  }
 }
