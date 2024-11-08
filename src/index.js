@@ -3,13 +3,13 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Pages/Login/Login'; 
-import Shtm from './Pages/Shtm/Shtm';  // Admin home
-import Sbit from './Pages/Sbit/Sbit';
-import Sslate from './Pages/Sslate/Sslate';
-import Sarfaid from './Pages/Sarfaid/Sarfaid';
+import Shtm from './Pages/TRASHBIN/Shtm/Shtm';  // Admin home
+import Sbit from './Pages/TRASHBIN/Sbit/Sbit';
+import Sslate from './Pages/TRASHBIN/Sslate/Sslate';
+import Sarfaid from './Pages/TRASHBIN/Sarfaid/Sarfaid';
 import Shome from './Pages/Shome/Shome';  // User home
 import About1 from './Pages/About1/About1'; // About page
-import Aboutm from './Pages/Aboutm/Aboutm'; // About page
+import Aboutm from './Pages/TRASHBIN/Aboutm/Aboutm'; // About page
 import reportWebVitals from './reportWebVitals';
 import Sbitclubs from './Pages/Sbitclubs/Sbitclubs';
 import Sarfaidclubs from './Pages/Sarfaidclubs/Sarfaidclubs';
