@@ -21,12 +21,8 @@ function About() {
         <img src={logo} alt="LCCB Logo" className="logo11" />
         <h1 className="site-title11">LCCB-CLUBSPHERE</h1>
         <ul className="nav-links11">
-          <li><a href="/shtm" onClick={handleNavigation('/shtm')}>SHTM</a></li>
-          <li><a href="/sbit" onClick={handleNavigation('/sbit')}>SBIT</a></li>
-          <li><a href="/sslate" onClick={handleNavigation('/sslate')}>SSLATE</a></li>
-          <li><a href="/sarfaid" onClick={handleNavigation('/sarfaid')}>SARFAID</a></li> 
+        <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
           <li><a href="/aboutm" onClick={handleNavigation('/aboutm')}>ABOUT</a></li>
-          <li><a href="/ssg" onClick={handleNavigation('/ssg')}>SSG</a></li>
           <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
         </ul>
         <button className="logout-button11" onClick={handleLogout}>Log out</button>

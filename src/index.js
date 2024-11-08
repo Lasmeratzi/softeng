@@ -29,6 +29,7 @@ root.render(
         <Route path="/sarfaid" element={<Sarfaid />} />
         <Route path="/about" element={<About1 />} />  {/* About page */}
         <Route path="/aboutm" element={<Aboutm />} />
+
         <Route path="/clubs" element={<Clubs />} />
         
          {/* clubs page */}

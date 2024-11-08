@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import './Clubs.css';
+import './Events.css';
 import logo from './lccb.png'; 
 
-function Clubs() {
+function Events() {
   const navigate = useNavigate(); 
 
   const handleLogout = () => {
@@ -34,20 +34,25 @@ function Clubs() {
       </nav>
 
       <div className="main-section" >
-        <h2 className="upcoming-title11">LCCB CLUBS</h2>
+        <h2 className="upcoming-title11">LCCB CLUB EVENTS</h2>
         <form className="events-form" onSubmit={handleSubmit}>
+          <h1>Event-ID</h1>
+          <input type="text" placeholder="Event ID" className="input-field" />
           <h1>Club-ID</h1>
           <input type="text" placeholder="Club ID" className="input-field" />
-          <h1>Department-ID</h1>
-          <input type="text" placeholder="Department Name" className="input-field" />
-          <h1>Club Logo</h1>
-          <input type="file" accept="image" className="input-field" />
-          <h1>Club Name</h1>
-          <input type="text" placeholder="Club Name" className="input-field" />
+          <h1>Event Name</h1>
+          <input type="text" placeholder="Event Name" className="input-field" />
+          <h1>Event Details</h1>
+          <input type="text" placeholder="Event Details" className="input-field" />
+          <h1>Event Venue</h1>
+          <input type="text" placeholder="Event Venue" className="input-field" />
+          <h1>Event Date</h1>
+          <input type="date" placeholder="Event Date" className="input-field" />
           <button type="submit" className="submit-button">Submit</button>
         </form>
       </div>
     </div>
   );
+}
 
-export default Clubs;
+export default Events;
