@@ -7,7 +7,7 @@ function Clubs() {
   const navigate = useNavigate(); 
 
   const handleLogout = () => {
-    navigate('/');
+    navigate('/');  // Redirect to the homepage or login page
   };
 
   const handleNavigation = (path) => (e) => {
@@ -33,7 +33,7 @@ function Clubs() {
         <button className="logout-button11" onClick={handleLogout}>Log out</button>
       </nav>
 
-      <div className="main-section" >
+      <div className="main-section">
         <h2 className="upcoming-title11">LCCB CLUBS</h2>
         <form className="events-form" onSubmit={handleSubmit}>
           <h1>Club-ID</h1>
@@ -47,8 +47,8 @@ function Clubs() {
           <button type="submit" className="submit-button">Submit</button>
         </form>
       </div>
-    </div>
-  );
+      </div> /* This is the closing div */
+  );  // Ensure there's a closing parenthesis here for the return
 }
 
-export default Clubs;
+export default Clubs;  // Export the Clubs component correctly
