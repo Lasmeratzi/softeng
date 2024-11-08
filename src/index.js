@@ -5,7 +5,9 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './Pages/Login/Login'; 
 import reportWebVitals from './reportWebVitals';
 import Sbitclubs from './Pages/Sbitclubs/Sbitclubs';
+import Shome from './Pages/Shome/Shome';
 import Sarfaidclubs from './Pages/Sarfaidclubs/Sarfaidclubs';
+import Departments from './Pages/Departments/Departments';
 import Shtmclubs from './Pages/Shtmclubs/Shtmclubs';
 import Clubs from './Pages/Clubs/Clubs';
 
@@ -15,12 +17,9 @@ root.render(
     <Router>
       <Routes>
         <Route path="/" element={<Login />} />  {/* Login page as the default route */}
-        <Route path="/user" element={<Shome />} />  {/* Regular user home page */}
-        <Route path="/departments" element={<Departments />} />
-        <Route path="/about" element={<About1 />} />  {/* About page */}
-        <Route path="/aboutm" element={<Aboutm />} />
-
         <Route path="/clubs" element={<Clubs />} />
+        <Route path="/departments" element={<Departments />} />
+        <Route path="/shome" element={<Shome />} />
         
          {/* clubs page */}
         <Route path="/Sbitclubs" element={<Sbitclubs />} />
