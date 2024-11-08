@@ -49,6 +49,5 @@ function Clubs() {
       </div>
     </div>
   );
-}
 
 export default Clubs;

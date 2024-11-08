@@ -14,6 +14,7 @@ import reportWebVitals from './reportWebVitals';
 import Sbitclubs from './Pages/Sbitclubs/Sbitclubs';
 import Sarfaidclubs from './Pages/Sarfaidclubs/Sarfaidclubs';
 import Shtmclubs from './Pages/Shtmclubs/Shtmclubs';
+import Clubs from './Pages/Clubs/Clubs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -28,6 +29,8 @@ root.render(
         <Route path="/sarfaid" element={<Sarfaid />} />
         <Route path="/about" element={<About1 />} />  {/* About page */}
         <Route path="/aboutm" element={<Aboutm />} />
+
+        <Route path="/clubs" element={<Clubs />} />
         
          {/* clubs page */}
         <Route path="/Sbitclubs" element={<Sbitclubs />} />
