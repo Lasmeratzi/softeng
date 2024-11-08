@@ -11,6 +11,9 @@ import Shome from './Pages/Shome/Shome';  // User home
 import About1 from './Pages/About1/About1'; // About page
 import Aboutm from './Pages/Aboutm/Aboutm'; // About page
 import reportWebVitals from './reportWebVitals';
+import Sbitclubs from './Pages/Sbitclubs/Sbitclubs';
+import Sarfaidclubs from './Pages/Sarfaidclubs/Sarfaidclubs';
+import Shtmclubs from './Pages/Shtmclubs/Shtmclubs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -25,6 +28,11 @@ root.render(
         <Route path="/sarfaid" element={<Sarfaid />} />
         <Route path="/about" element={<About1 />} />  {/* About page */}
         <Route path="/aboutm" element={<Aboutm />} />
+        
+         {/* clubs page */}
+        <Route path="/Sbitclubs" element={<Sbitclubs />} />
+        <Route path="/Sarfaidclubs" element={<Sarfaidclubs />} />
+        <Route path="/Shtmclubs" element={<Shtmclubs />} />
       </Routes>
     </Router>
   </React.StrictMode>
