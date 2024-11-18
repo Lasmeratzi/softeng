@@ -1,0 +1,206 @@
+@font-face {
+    font-family: 'Manuka';
+    src: url('./TestManuka-Bold.otf') format('opentype');
+    font-weight: bold;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('./Montserrat-Light.ttf') format('truetype');
+    font-weight: 300;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('./Montserrat-Medium.ttf') format('truetype');
+    font-weight: 500;
+  }
+  
+  @font-face {
+    font-family: 'Montserrat';
+    src: url('./Montserrat-Bold.ttf') format('truetype');
+    font-weight: 700;
+  }
+  
+  .profile-container33 {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+  
+  .navbar33 {
+    display: flex;
+    align-items: center;
+    padding: 0px 10px;
+    background-color: #321bdd; 
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    width: auto;
+  }
+  
+  .logo33 {
+    width: 50px;
+    height: auto;
+    margin: 0;
+  }
+  
+  .site-title33 {
+    font-family: 'Manuka', sans-serif;
+    font-size: 35px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    padding-left: 0px 5px 0px 5px;
+    margin: 0px 100px 0px 10px;
+  }
+  
+  .nav-links33 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    color: #f2f2f2;
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    padding-left: 0px;
+    margin-left: 0px;
+    margin-top: 25px;
+  }
+  
+  .nav-links33 li a {
+    position: relative;
+    text-decoration: none;
+    color: #f2f2f2;
+    font-weight: bold;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-links33 li a:hover {
+    color: #19c8ff;
+  }
+  
+  .logout-button33 {
+    background-color: #19c8ff; 
+    color: white;
+    padding: 10px 30px;
+    margin: 0px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    float: right;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .main-section33 {
+    background-image: url(lccb2.png), rgba(255, 255, 255, 0.7);
+    background-size: cover;
+    background-position: center;  
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    align-items: flex-start;  
+    position: relative;
+  }
+  
+  .left-section33, .right-section33 {
+    flex: 1;
+    margin: 0 10px;
+    max-width: 45%;
+  }
+  
+  .upcoming-title33 {
+    font-family: 'Manuka', sans-serif;
+    font-size: 6.0rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #321bdd;
+    text-align: center;
+    margin: 0;
+  }
+  
+  .events-form33 {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+  }
+  
+  .input-field33 {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .submit-button33 {
+    padding: 10px;
+    background-color: #321bdd; 
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .submit-button33:hover {
+    background-color: #19c8ff; 
+  }
+  
+  .officers-table33 {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .officers-table33 th, .officers-table33 td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .officers-table33 th {
+    font-weight: bold;
+    background-color: #f2f2f2;
+  }
+  
+  .officers-table33 td img {
+    width: 100px;
+    height: auto;
+  }
+  
+  .officers-table33 td .update-button33 {
+    margin-right: 5px;
+    padding: 8px 12px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .officers-table33 td .update-button33:hover {
+    background-color: #218838;
+  }
+  
+  .officers-table33 td .delete-button33 {
+    margin-right: 5px;
+    padding: 8px 12px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  
+  .officers-table33 td .delete-button33:hover {
+    background-color: #c82333;
+  }
+  
