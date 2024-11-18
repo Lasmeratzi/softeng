@@ -1,0 +1,278 @@
+@font-face {
+  font-family: 'Manuka';
+  src: url('./TestManuka-Bold.otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Light.ttf') format('truetype');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Medium.ttf') format('truetype');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('./Montserrat-Bold.ttf') format('truetype');
+  font-weight: 700;
+}
+
+.events-profile-container {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.events-navbar {
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  background-color: #321bdd;
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: auto;
+}
+
+.events-logo {
+  width: 50px;
+  height: auto;
+  margin: 0;
+}
+
+.events-site-title {
+  font-family: 'Manuka', sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding-left: 0px 5px 0px 5px;
+  margin: 0px 100px 0px 10px;
+}
+
+.events-nav-links {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: #f2f2f2;
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  padding-left: 0px;
+  margin-left: 0px;
+  margin-top: 25px;
+}
+
+.events-nav-links li a {
+  position: relative;
+  text-decoration: none;
+  color: #f2f2f2;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.events-nav-links li a:hover {
+  color: #19c8ff;
+}
+
+.events-logout-button {
+  background-color: #19c8ff;
+  color: white;
+  padding: 10px 30px;
+  margin: 0px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  float: right;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.events-main-section {
+  background-image: url(lccb2.png), rgba(255, 255, 255, 0.7);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  align-items: flex-start;
+  position: relative;
+}
+
+.events-left-section,
+.events-right-section {
+  flex: 1;
+  margin: 0 10px;
+  max-width: 45%;
+}
+
+.events-upcoming-title {
+  font-family: 'Manuka', sans-serif;
+  font-size: 6.0rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #321bdd;
+  text-align: center;
+  margin: 0;
+}
+
+.events-form {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+}
+
+.events-form h1 {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: light;
+  font-size: 20px;
+}
+
+.events-input-field {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 0;
+}
+
+.events-submit-button {
+  padding: 10px;
+  background-color: #321bdd;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.events-submit-button:hover {
+  background-color: #19c8ff;
+}
+
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+}
+.events-table th,
+.events-table td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.events-table th {
+  font-weight: bold;
+  background-color: #f2f2f2;
+}
+.events-table td {
+  max-width: 150px; /* Adjust this width as needed */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.events-table td img {
+  width: 100px; /* Adjust logo size if needed */
+  height: auto;
+}
+
+.events-table td .events-update-button {
+  margin-right: 5px;
+  padding: 8px 12px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.events-table td .events-update-button:hover {
+  background-color: #218838;
+}
+
+.events-table td .events-delete-button {
+  margin-right: 5px;
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.events-table td .events-delete-button:hover {
+  background-color: #c82333;
+}
+
+/* Dropdown Menu Styles */
+.events-dropdown-menu {
+  position: absolute;
+  background-color: rgba(92, 82, 82, 0.8); /* Transparent color */
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  display: none; /* Hidden by default */
+}
+
+.events-dropdown-menu.active {
+  display: block; /* Show when active */
+}
+
+.events-dropdown-menu a {
+  color: white;
+  padding: 10px 15px;
+  text-decoration: none;
+  display: block;
+}
+
+.events-dropdown-menu a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .events-nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .events-left-section,
+  .events-right-section {
+    max-width: 100%;
+  }
+
+  .events-upcoming-title {
+    font-size: 4rem; /* Adjust title size for smaller screens */
+  }
+}
+.events-event-details {
+  max-height: 100px; /* Set a maximum height for the details */
+  overflow: hidden; /* Hide overflow content */
+  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
+  white-space: nowrap; /* Prevent text from wrapping */
+  display: block; /* Ensure it behaves like a block element */
+}
+
+/* Optional: Add a "Read More" link/button */
+.events-read-more {
+  color: #19c8ff; /* Color for the read more link */
+  cursor: pointer; /* Change cursor to pointer */
+  text-decoration: underline; /* Underline for emphasis */
+  margin-top: 5px; /* Space above the link */
+}

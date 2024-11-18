@@ -1,0 +1,442 @@
+/* General layout and styles */
+@font-face {
+  font-family: 'Manuka';
+  src: url('./TestManuka-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'NotoSans';
+  src: url('./NotoSans-Regular.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'NotoSans';
+  src: url('./NotoSans-Light.ttf') format('opentype');
+  font-weight: light;
+}
+@font-face {
+  font-family: 'NotoSans';
+  src: url('./NotoSans-Bold.ttf') format('opentype');
+  font-weight: bold;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.student-home-container {
+  width: 100%;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-image: url('whtb.jpg');
+  background-size: cover;
+}
+.student-logo {
+  width: auto;
+  height: 50px;
+  margin: 0px;
+}
+.student-logo2 {
+  width: auto;
+  height: 25px;
+  margin: 0px;
+}
+.student-logo3 {
+  width: auto;
+  height: 30px;
+  margin: 0px;
+}
+.toggle-button {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 25px;
+  cursor: pointer;
+}
+.student-navbar {
+  display: flex;
+  align-items: center;
+  padding: 10px 50px 10px 30px;
+  background-color: #321bdd;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.student-nav-links {
+  font-family: 'NotoSans', sans-serif;
+  font-size: 14px;
+  font-weight: bold;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin-right: auto; /* Move the links to the left */
+}
+.student-nav-links li {
+  position: relative;
+}
+.student-nav-links li a {
+  position: relative;
+  text-decoration: none;
+  letter-spacing: 1px;
+  color: #f2f2f2;
+  margin: 0px 10px;
+  padding: 10px 0;
+  transition: color 0.3s ease;
+}
+.student-nav-links li a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 5px;
+  border-radius: 5px;
+  background-color: #10E4F9;
+  transition: width 0.3s ease;
+}
+.student-nav-links li a:hover::after {
+  width: 100%;
+}
+.student-nav-links li a:hover {
+  color: #10E4F9;
+}
+/* Dropdown styles */
+.student-dropdowns {
+  display: none;
+  position: absolute;
+  top: 100%; /* Position the dropdown directly below the parent */
+  left: 0;
+  background-color: white;
+  border: 1px solid #10E4F9;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  z-index: 200;
+  width: 150px;
+}
+.student-nav-links li:hover .student-dropdowns {
+  display: block;
+}
+/* Dropdown item styles */
+.student-dropdowns a {
+  font-size: 1rem;
+  padding: 10px;
+  color: #321bdd !important; /* Ensure the dropdown text is black */
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+.student-dropdowns a:hover {
+  color: #10E4F9; /* Text turns white when hovering */
+}
+.dropdown-icon {
+  color: #f2f2f2;
+}
+/* Dropdown select styling */
+.student-dropdowns select {
+  font-family: 'NotoSans', sans-serif;
+  font-size: 1rem;
+  padding: 5px;
+  border: 2px solid #10E4F9;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #10E4F9; /* Text color for select options */
+  transition: border-color 0.3s ease;
+}
+.student-dropdowns select:hover{
+  color: #10E4F9;
+}
+/* Logout button styling */
+.student-logout-button {
+  background-color: #10E4F9;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'NotoSans', sans-serif;
+}
+.student-logout-button:hover {
+  background-color: #ff0033;
+}
+/* Main section for event cards */
+.student-main-section {
+  display: flex;
+  padding:  0px 50px;
+  flex: 1;
+}
+.student-title-box {
+  background: url('bccl2.jpg');
+  background-size: cover;
+  padding: 0px 10px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  width: 90%;
+}
+
+
+.student-upcoming-title {
+  font-family: 'Manuka', sans-serif;
+  font-size: 3.5rem;
+  font-weight: lighter;
+  color: #f2f2f2;
+  margin: 10px 20px 10px 20px;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.student-upcoming-title1 {
+  font-family: 'Manuka', sans-serif;
+  font-size: 2.5rem;
+  color: #321bdd;
+  font-weight: lighter;
+  margin-top: 35px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+.student-upcoming-title3 {
+  font-family: 'Noto-Sans Regular', sans-serif;
+  font-size: 1.1rem;
+  color: #321bdd;
+  font-weight: bold;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+.student-upcoming-title4 {
+  font-family: 'Noto-Sans Regular', sans-serif;
+  font-size: .90rem;
+  color: #321bdd;
+  font-weight: lighter;
+  margin-top: 10px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+.student-upcoming-title2 {
+  color: #321bdd;
+  font-family: 'NotoSans', 'Sans-serif';
+  font-weight: lighter;
+  border-bottom: 1px solid #321bdd;
+}
+.student-upcoming-title2 .events-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+/* Styling for the events table */
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: none; /* Remove background */
+  border: 2px solid #321bdd; /* Add border to the table */
+  table-layout: fixed; /* Ensure the table has a constant shape despite changes in data */
+}
+.events-table th, .events-table td {
+  background: none; /* Remove background */
+  border-bottom: 1px solid #321bdd;
+  font-family: 'NotoSans', sans-serif;
+  text-align: left;
+  padding: 10px;
+  padding-bottom: 10px;
+  color: #321bdd;
+  word-wrap: break-word; /* Ensure content wraps within the cell */
+}
+.student-left-section {
+  width: 15%;
+}
+.student-center-section {
+  width: 65%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.student-right-section {
+  width: 20%;
+}
+.student-event-cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%; 
+}
+/* Card styles */
+.student-event-card {
+  width: 200px;
+  height: 255px; /* Set a fixed height to make the card square */
+  border: 2px solid #321bdd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #f5f5f5; /* Reverted card background to light gray */
+}
+.student-event-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+/* Image styling */
+.student-event-card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 20px;
+}
+/* Styling for event logos */
+.student-event-logo {
+  width: 30px; /* Adjusted size for smaller logos */
+  height: auto;
+  margin-bottom: 10px;
+}
+.student-event-details {
+  padding: 10px 0px 35px 0px; /* Increased padding for better spacing */
+  text-align: center;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 56) 100%); /* Fade effect to deep blue */
+}
+.student-event-details h3 {
+  font-size: .80rem;
+  color: #dfe2ff;
+  font-weight: lighter;
+  font-family: 'NotoSans-Regular', sans-serif;
+  margin: 10px 20px 0px 20px; /* Adjusted margin for better spacing */
+}
+
+.student-event-details h2 {
+  font-size: .90rem;
+  color: #321bdd;
+  font-weight: 700px;
+  font-family: 'NotoSans Regular', sans-serif;
+  margin: 20px 0; /* Adjusted margin for better spacing */
+}
+.student-event-venue {
+  padding: 15px;
+  background: #f7f7f7;
+  border-top: 1px solid #ddd;
+}
+/* Styling for upcoming events */
+.student-events-section {
+  width: 90%;
+  margin-bottom: 100px;
+}
+.events-table2 {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  table-layout: fixed; /* Ensure the table has a constant shape despite changes in data */
+}
+.events-table2 th, .events-table2 td {
+  border-bottom: 1px solid #321bdd;
+  font-family: 'NotoSans Regular', sans-serif;
+  text-align: left;
+  padding: 10px;
+  padding-bottom: 10px;
+  color: #321bdd;
+  background: none; /* Ensure background is transparent */
+  height: 50px; /* Ensure each row has a consistent height */
+}
+.student-events-table .event-name {
+  font-weight: bold;
+  font-family: 'NotoSans', sans-serif;
+  font-size: 1.2rem; /* Adjust the size as needed */
+  padding-bottom: 10px;
+  color: #321bdd;
+}
+.student-events-table .event-date {
+  font-family: 'NotoSans', sans-serif;
+  color: #321bdd;
+  font-size: 1rem; /* Adjust the size as needed */
+  font-weight: lighter; /* Light font weight for the date */
+}
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+  .student-nav-links {
+    display: none;
+    flex-direction: column;
+    margin: 0;
+    width: 100%;
+  }
+  .student-nav-links.active {
+    display: flex;
+  }
+  .toggle-button {
+    display: block;
+  }
+  .student-navbar {
+    flex-direction: column;
+    padding: 5px;
+  }
+  .student-logout-button {
+    margin-top: 10px;
+  }
+  .student-nav-links li {
+    margin-bottom: 10px;
+  }
+  .student-left-section,
+  .student-center-section,
+  .student-right-section {
+    width: 100%;
+  }
+  .student-event-card {
+    width: 100%; /* Full width for smaller screens */
+  }
+}
+.student-modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: auto; /* Allow width to adjust based on content */
+  max-width: 90%; /* Set a maximum width for responsiveness */
+  text-align: center;
+  position: relative; /* Added to position the close button */
+}
+.student-modal-content h2 {
+  margin-top: 70px;
+}
+.student-close-button {
+  position: absolute;
+  top: 10px; /* Align with the top padding of the modal content */
+  right: 10px; /* Align with the right padding of the modal content */
+  font-size: 24px;
+  cursor: pointer;
+  color: white; /* Set the color to white for better visibility */
+  background-color: black; /* Set background to black for contrast */
+  border: none; /* Remove border */
+  padding: 10px; /* Uniform padding to maintain square shape */
+  width: 40px; /* Set width for square shape */
+  height: 40px; /* Set height for square shape */
+  border-radius: 5px; /* Optional: add border radius for a softer look */
+}
+/* Other styles remain unchanged */
+.student-clubs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+.student-clubs-table th, .student-clubs-table td {
+  border-bottom: 1px solid #321bdd;
+  font-family: 'NotoSans Regular', sans-serif;
+  text-align: left;
+  padding: 10px;
+  padding-bottom: 10px;
+  color: #321bdd;
+}
+.student-club-logo {
+  width: 50px; /* Adjusted size for smaller logos */
+  height: auto;
+  margin-right: 10px;
+}
+.club-logo {
+  width: 50px; /* Adjusted size for smaller logos */
+  height: auto;
+  margin-right: 10px;
+}

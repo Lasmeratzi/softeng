@@ -1,0 +1,94 @@
+/* Ensure that the html and body take up the full height */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Main container should take up the remaining space */
+.student-home-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Flex-grow to ensure this section takes up all available space */
+.student-main-section {
+  flex: 1;
+}
+
+/* Footer specific styles */
+.footer {
+  width: auto;
+  background-color: rgb(9, 9, 11);
+  height: 50px; /* Set the height of the footer */
+}
+
+.footer-container {
+  max-width: auto;
+  margin: 0 30px 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.logo-link {
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.logo-link:hover {
+  opacity: 1;
+}
+.student-logo {
+  height: 40px;
+  width: auto;
+  margin-top: 5px;
+}
+.student-logo2 {
+  height: 20px;
+  width: auto;
+  margin-top: 5px;
+}
+.logo {
+  height: 30px;
+  width: auto;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 0.875rem;
+  color: rgb(156, 163, 175);
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.footer-link {
+  transition: color 0.2s;
+}
+
+.footer-link:hover {
+  color: rgb(229, 231, 235);
+}
+
+@media (max-width: 640px) {
+  .copyright {
+    display: none;
+  }
+  
+  .accessibility-link {
+    display: none;
+  }
+}
