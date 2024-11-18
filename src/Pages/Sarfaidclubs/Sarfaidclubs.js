@@ -27,8 +27,8 @@ function Sarfaidclubs() {
         <img src={logo} alt="LCCB Logo" className="logo" />
         <h1 className="site-title">LCCB - CLUBSPHERE</h1>
         <ul className="nav-links">
-          <li><a href="/shome">HOME</a></li>
-          <li><a href="/about">ABOUT</a></li>
+        <li><a href="/shome" onClick={() => navigate('/shome')}>HOME</a></li>
+        <li><a href="/about1" onClick={() => navigate('/about1')}>ABOUT</a></li>
           <li>
             <a href="#" onClick={preventNavigation}>CLUBS</a>
             <div className="dropdowns">
