@@ -93,6 +93,7 @@
   }
   
   .main-section33 {
+  
     background-image: url(lccb2.png), rgba(255, 255, 255, 0.7);
     background-size: cover;
     background-position: center;  
@@ -105,6 +106,7 @@
   }
   
   .left-section33, .right-section33 {
+    padding-top: 5%;
     flex: 1;
     margin: 0 10px;
     max-width: 45%;
@@ -118,6 +120,7 @@
     color: #321bdd;
     text-align: center;
     margin: 0;
+    
   }
   
   .events-form33 {

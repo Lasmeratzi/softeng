@@ -1,3 +1,209 @@
+/* Global Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Navbar Styling */
+.events-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background-color: #0044cc; /* Bright blue */
+  color: white;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Left Navbar Section */
+.events-left-navbar {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo Styling */
+.events-logo {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
+}
+
+/* Site Title Styling */
+.events-site-title {
+  font-family: 'Manuka', sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-right: 30px; /* Add space between title and links */
+}
+
+/* Navigation Links Styling */
+.events-nav-links {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.events-nav-links li {
+  margin: 0;
+}
+
+.events-nav-links a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+.events-nav-links a:hover {
+  color: #19c8ff; /* Greenish hover effect */
+}
+
+/* Logout Button */
+.events-logout-button {
+  background-color: #19c8ff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.events-logout-button:hover {
+  background-color: #d62828;
+}
+
+
+/* Main Content Styling */
+.events-main-section33 {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10%; /* Account for navbar height */
+  padding: 20px;
+}
+
+.events-main-section33{
+  padding-top: 92px;
+  padding-left: 55px;
+}
+
+.events-left-section{
+  padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    width: 41.5%;
+    
+
+}
+
+.events-right-section {
+  width: 48%;
+  padding: 20px;
+  border-radius: 10px;
+  padding-top: 2px;
+}
+
+/* Form Styling */
+.events-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+  padding-top: 0%;
+
+}
+.upcoming-title22{    
+  font-family: 'Manuka', sans-serif;
+    font-size: 5.0rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #321bdd;
+    text-align: center;
+
+ 
+
+}
+
+.events-input-field {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+}
+
+.events-submit-button {
+  background-color: #321bdd;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.events-submit-button:hover {
+  background-color: #19c8ff;
+}
+
+/* Table Styling */
+.events-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-color: #ccc;
+  margin-top: 0px;
+}
+
+
+.events-table th,
+.events-table td {
+padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+  color:#000
+}
+
+.events-update-button,
+.events-delete-button {
+  padding: 6px 12px;
+  border: none;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.events-update-button {
+  background-color: #321bdd;
+  color: white;
+  border-radius: 5px;
+}
+
+.events-upcoming-title {
+ padding-top: 50;
+}
+
+.events-update-button:hover {
+  background-color: #19c8ff;
+}
+
+.events-delete-button {
+  background-color: #321bdd;
+  color: white;
+  border-radius: 5px;
+}
+
+.events-delete-button:hover {
+  background-color: #d62828;
+}
+
 @font-face {
   font-family: 'Manuka';
   src: url('./TestManuka-Bold.otf') format('opentype');
@@ -20,259 +226,4 @@
   font-family: 'Montserrat';
   src: url('./Montserrat-Bold.ttf') format('truetype');
   font-weight: 700;
-}
-
-.events-profile-container {
-  width: 100%;
-  height: 100vh;
-  position: relative;
-}
-
-.events-navbar {
-  display: flex;
-  align-items: center;
-  padding: 0px 10px;
-  background-color: #321bdd;
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  width: auto;
-}
-
-.events-logo {
-  width: 50px;
-  height: auto;
-  margin: 0;
-}
-
-.events-site-title {
-  font-family: 'Manuka', sans-serif;
-  font-size: 35px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  padding-left: 0px 5px 0px 5px;
-  margin: 0px 100px 0px 10px;
-}
-
-.events-nav-links {
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-  color: #f2f2f2;
-  list-style: none;
-  display: flex;
-  gap: 30px;
-  padding-left: 0px;
-  margin-left: 0px;
-  margin-top: 25px;
-}
-
-.events-nav-links li a {
-  position: relative;
-  text-decoration: none;
-  color: #f2f2f2;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-.events-nav-links li a:hover {
-  color: #19c8ff;
-}
-
-.events-logout-button {
-  background-color: #19c8ff;
-  color: white;
-  padding: 10px 30px;
-  margin: 0px 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
-  float: right;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.events-main-section {
-  background-image: url(lccb2.png), rgba(255, 255, 255, 0.7);
-  background-size: cover;
-  background-position: center;
-  height: 100%;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  align-items: flex-start;
-  position: relative;
-}
-
-.events-left-section,
-.events-right-section {
-  flex: 1;
-  margin: 0 10px;
-  max-width: 45%;
-}
-
-.events-upcoming-title {
-  font-family: 'Manuka', sans-serif;
-  font-size: 6.0rem;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: #321bdd;
-  text-align: center;
-  margin: 0;
-}
-
-.events-form {
-  background-color: #f2f2f2;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-}
-
-.events-form h1 {
-  margin: 0;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: light;
-  font-size: 20px;
-}
-
-.events-input-field {
-  padding: 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  margin: 0;
-}
-
-.events-submit-button {
-  padding: 10px;
-  background-color: #321bdd;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.events-submit-button:hover {
-  background-color: #19c8ff;
-}
-
-.events-table {
-  width: 100%;
-  border-collapse: collapse;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-}
-.events-table th,
-.events-table td {
-  padding: 12px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
-
-.events-table th {
-  font-weight: bold;
-  background-color: #f2f2f2;
-}
-.events-table td {
-  max-width: 150px; /* Adjust this width as needed */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.events-table td img {
-  width: 100px; /* Adjust logo size if needed */
-  height: auto;
-}
-
-.events-table td .events-update-button {
-  margin-right: 5px;
-  padding: 8px 12px;
-  background-color: #28a745;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.events-table td .events-update-button:hover {
-  background-color: #218838;
-}
-
-.events-table td .events-delete-button {
-  margin-right: 5px;
-  padding: 8px 12px;
-  background-color: #dc3545;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-.events-table td .events-delete-button:hover {
-  background-color: #c82333;
-}
-
-/* Dropdown Menu Styles */
-.events-dropdown-menu {
-  position: absolute;
-  background-color: rgba(92, 82, 82, 0.8); /* Transparent color */
-  border-radius: 5px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  display: none; /* Hidden by default */
-}
-
-.events-dropdown-menu.active {
-  display: block; /* Show when active */
-}
-
-.events-dropdown-menu a {
-  color: white;
-  padding: 10px 15px;
-  text-decoration: none;
-  display: block;
-}
-
-.events-dropdown-menu a:hover {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .events-nav-links {
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .events-left-section,
-  .events-right-section {
-    max-width: 100%;
-  }
-
-  .events-upcoming-title {
-    font-size: 4rem; /* Adjust title size for smaller screens */
-  }
-}
-.events-event-details {
-  max-height: 100px; /* Set a maximum height for the details */
-  overflow: hidden; /* Hide overflow content */
-  text-overflow: ellipsis; /* Add ellipsis for overflowed text */
-  white-space: nowrap; /* Prevent text from wrapping */
-  display: block; /* Ensure it behaves like a block element */
-}
-
-/* Optional: Add a "Read More" link/button */
-.events-read-more {
-  color: #19c8ff; /* Color for the read more link */
-  cursor: pointer; /* Change cursor to pointer */
-  text-decoration: underline; /* Underline for emphasis */
-  margin-top: 5px; /* Space above the link */
 }

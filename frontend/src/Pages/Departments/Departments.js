@@ -98,7 +98,7 @@ function Departments() {
   };
 
   const handleLogout = () => {
-    navigate('/');
+    navigate('/'); // Redirect to the home page (or login page)
   };
 
   const handleNavigation = (path) => (e) => {
@@ -108,22 +108,26 @@ function Departments() {
 
   return (
     <div className="profile-container22">
-      <nav className="navbar22">
-        <img src={logo} alt="LCCB Logo" className="logo22" />
-        <h1 className="site-title22">LCCB-CLUBSPHERE</h1>
-        <ul className="nav-links22">
-          <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
-          <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
-          <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
-        </ul>
-        <button className="logout-button22" onClick={handleLogout}>Log out</button>
-      </nav>
+       <nav className="events-navbar">
+  <div className="events-left-navbar">
+    <img src={logo} alt="LCCB Logo" className="events-logo" />
+    <ul className="events-nav-links">
+    <h1 className="events-site-title">LCCB NEXUS </h1>
+      <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
+      <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
+      <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
+    </ul>
+  </div>
+  <button className="events-logout-button" onClick={handleLogout}>Log out</button>
+</nav>
+
 
       <div className="main-section22">
         <div className="left-section22">
-          <h2 className="upcoming-title22">DEPARTMENTS</h2>
           <form className="events-form22" onSubmit={handleSubmit}>
-            <h1>Department-ID</h1>
+          <h2 className="upcoming-title22">DEPARTMENTS</h2>
+            
+            <label>Department ID</label>
             <input 
               type="text" 
               name="departmentId" 
@@ -133,14 +137,14 @@ function Departments() {
               className="input-field22" 
               readOnly={isUpdating} 
             />
-            <h1>Department Logo</h1>
+            <label>Department Logo</label>
             <input 
               type="file" 
               accept="image/*" 
               onChange={handleFileChange}
               className="input-field22" 
             />
-            <h1>Department Name</h1>
+            <label>Department Name</label>
             <input 
               type="text" 
               name="departmentName" 
@@ -149,7 +153,7 @@ function Departments() {
               onChange={handleInputChange}
               className="input-field22" 
             />
-            <h1>Department Color</h1>
+            <label>Department Color</label>
             <input 
               type="color" 
               name="departmentColor" 
@@ -162,9 +166,11 @@ function Departments() {
             </button>
           </form>
         </div>
+        
         <div className="right-section22">
           <h2 className="upcoming-title22">EXISTING DEPARTMENTS</h2>
           <table className="departments-table22">
+            
             <thead>
               <tr>
                 <th>ID</th>
