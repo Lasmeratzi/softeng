@@ -97,23 +97,26 @@ function Officers() {
   };
 
   return (
-    <div className="profile-container33">
-      <nav className="navbar33">
-        <img src={logo} alt="LCCB Logo" className="logo33" />
-        <h1 className="site-title33">LCCB-CLUBSPHERE</h1>
-        <ul className="nav-links33">
-          <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
-          <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
-          <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
-        </ul>
-        <button className="logout-button33" onClick={handleLogout}>Log out</button>
-      </nav>
+    <div className="profile-container22">
+    <nav className="events-navbar">
+<div className="events-left-navbar">
+ <img src={logo} alt="LCCB Logo" className="events-logo" />
+ <ul className="events-nav-links">
+ <h1 className="events-site-title">LCCB NEXUS </h1>
+   <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
+   <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
+   <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
+ </ul>
+</div>
+<button className="events-logout-button" onClick={handleLogout}>Log out</button>
+</nav>
 
       <div className="main-section33">
         <div className="left-section33">
-          <h2 className="upcoming-title33">CLUB OFFICERS</h2>
+         
           <form className="events-form33" onSubmit={handleSubmit}>
-            <h1>Club-ID</h1>
+          <h2 className="upcoming-title33">CLUB OFFICERS</h2>
+            <label>Club-ID</label>
             <input 
               type="text" 
               name="clubId" 
@@ -122,7 +125,7 @@ function Officers() {
               onChange={handleInputChange}
               className="input-field33" 
             />
-            <h1>First Name</h1>
+            <label>First Name</label>
             <input 
               type="text" 
               name="officerFname" 
@@ -131,7 +134,7 @@ function Officers() {
               onChange={handleInputChange}
               className="input-field33" 
             />
-            <h1>Last Name</h1>
+       <label>Last Name</label>
             <input 
               type="text" 
               name="officerLname" 
@@ -140,7 +143,7 @@ function Officers() {
               onChange={handleInputChange}
               className="input-field33" 
             />
-            <h1>Position</h1>
+            <label>Position</label>
             <input 
               type="text" 
               name="position" 

@@ -13,7 +13,7 @@ function Events() {
     eventName: '',
     eventDetails: '',
     eventVenue: '',
-    eventDate: ''
+    eventDate: '',
   });
   const [isUpdating, setIsUpdating] = useState(false);
 
@@ -34,7 +34,7 @@ function Events() {
     const { name, value } = e.target;
     setEventData({
       ...eventData,
-      [name]: value
+      [name]: value,
     });
   };
 
@@ -43,7 +43,7 @@ function Events() {
     const { eventId, clubId, eventName, eventDetails, eventVenue, eventDate } = eventData;
 
     if (!eventId || !clubId || !eventName || !eventDetails || !eventVenue || !eventDate) {
-      alert("Please fill in all fields");
+      alert('Please fill in all fields');
       return;
     }
 
@@ -57,7 +57,7 @@ function Events() {
         alert('Event added successfully!');
       }
       setEventData({ eventId: '', clubId: '', eventName: '', eventDetails: '', eventVenue: '', eventDate: '' });
-      fetchEvents(); // Fetch updated data after submission
+      fetchEvents();
     } catch (error) {
       console.error('Error:', error);
       alert(`There was an error ${isUpdating ? 'updating' : 'adding'} the event.`);
@@ -71,7 +71,7 @@ function Events() {
       eventName: event.event_name,
       eventDetails: event.event_details,
       eventVenue: event.event_venue,
-      eventDate: event.event_date
+      eventDate: event.event_date,
     });
     setIsUpdating(true);
   };
@@ -96,93 +96,92 @@ function Events() {
   const handleNavigation = (path) => (e) => {
     e.preventDefault();
     navigate(path);
-  };
+  };<h1 className="events-site-title">LCCB-CLUBSPHERE</h1>
 
   return (
     <div className="events-profile-container">
       <nav className="events-navbar">
-        <img src={logo} alt="LCCB Logo" className="events-logo" />
-        <h1 className="events-site-title">LCCB-CLUBSPHERE</h1>
-        <ul className="events-nav-links">
-          <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
-          <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
-          <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
-        </ul>
-        <button className="events-logout-button" onClick={handleLogout}>Log out</button>
-      </nav>
+  <div className="events-left-navbar">
+    <img src={logo} alt="LCCB Logo" className="events-logo" />
+    <ul className="events-nav-links">
+    <h1 className="events-site-title">LCCB NEXUS </h1>
+      <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
+      <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
+      <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
+    </ul>
+  </div>
+  <button className="events-logout-button" onClick={handleLogout}>Log out</button>
+</nav>
 
-      <div className="events-main-section">
+      <div className="events-main-section33">
         <div className="events-left-section">
-          <h2 className="events-upcoming-title">LCCB CLUB EVENTS</h2>
+        <h2 className="upcoming-title22">LCCB CLUB EVENTS</h2>
           <form className="events-form" onSubmit={handleSubmit}>
-            <h1>Event-ID</h1>
-            <input 
-              type="text" 
-              name="eventId" 
-              placeholder="Event ID" 
+          <label>Club ID</label>
+            <input
+              type="text"
+              name="eventId"
+              placeholder="Event ID"
               value={eventData.eventId}
               onChange={handleInputChange}
-              className="events-input-field" 
-              readOnly={isUpdating} 
+              className="events-input-field"
+              readOnly={isUpdating}
             />
-            <h1>Club-ID</h1>
-            <input 
-              type="text" 
-              name="clubId" 
-              placeholder="Club ID" 
+            <label>Club ID</label>
+            <input
+              type="text"
+              name="clubId"
+              placeholder="Club ID"
               value={eventData.clubId}
               onChange={handleInputChange}
-              className="events-input-field" 
+              className="events-input-field"
             />
-            <h1>Event Name</h1>
-            <input 
-              type="text" 
-              name="eventName" 
-              placeholder="Event Name" 
+           <label>Event Name</label>
+            <input
+              type="text"
+              name="eventName"
+              placeholder="Event Name"
               value={eventData.eventName}
               onChange={handleInputChange}
-              className="events-input-field" 
+              className="events-input-field"
             />
-            <h1>Event Details</h1>
-            <input 
-              type="text" 
-              name="eventDetails" 
-              placeholder="Event Details" 
+            <label>Event Details</label>
+            <textarea
+              name="eventDetails"
+              placeholder="Event Details"
               value={eventData.eventDetails}
               onChange={handleInputChange}
-              className="events-input-field" 
-            />
-            <h1>Event Venue</h1>
-            <input 
-              type="text" 
-              name="eventVenue" 
-              placeholder="Event Venue" 
+              className="events-input-field"
+            /> <label>Event Venue</label>
+            <input
+              type="text"
+              name="eventVenue"
+              placeholder="Event Venue"
               value={eventData.eventVenue}
               onChange={handleInputChange}
-              className="events-input-field" 
+              className="events-input-field"
             />
-            <h1>Event Date</h1>
-            <input 
-              type="date" 
-              name="eventDate" 
-              placeholder="Event Date" 
+            
+            <input
+              type="date"
+              name="eventDate"
               value={eventData.eventDate}
               onChange={handleInputChange}
-              className="events-input-field" 
+              className="events-input-field"
             />
-            <button type="submit" className="events-submit-button">
-              {isUpdating ? 'Update' : 'Submit'}
+            <button className="events-submit-button" type="submit">
+              {isUpdating ? 'Update Event' : 'Add Event'}
             </button>
           </form>
         </div>
+       
         <div className="events-right-section">
-          <h2 className="events-upcoming-title">EXISTING EVENTS</h2>
+        <h2 className="upcoming-title22">UPCOMING EVENTS</h2>
+          
           <table className="events-table">
             <thead>
-              <tr>
-                <th>ID</th>
-                <th>Club ID</th>
-                <th>Name</th>
+              <tr><th>Event Name</th>
+                <th>Event Name</th>
                 <th>Details</th>
                 <th>Venue</th>
                 <th>Date</th>
@@ -190,20 +189,28 @@ function Events() {
               </tr>
             </thead>
             <tbody>
-                      {events.map(event => (
-                        <tr key={event.event_id}>
-                        <td>{event.event_id}</td>
-                        <td>{event.club_id}</td>
-                        <td>{event.event_name}</td>
-                        <td>{event.event_details.length > 5 ? event.event_details.substring(0, 5) + '...' : event.event_details}</td>
-                        <td>{event.event_venue}</td>
-                        <td>{new Date(event.event_date).toLocaleDateString('en-US')}</td> {/* Format date */}
-                        <td>
-                        <button className="events-update-button" onClick={() => handleUpdate(event)}>Update</button>
-                        <button className="events-delete-button" onClick={() => handleDelete(event.event_id)}>Delete</button>
-                        </td>
-                        </tr>
-                        ))}
+              {events.map((event) => (
+                <tr key={event.event_id}>
+                  <td>{event.event_name}</td>
+                  <td>{event.event_details}</td>
+                  <td>{event.event_venue}</td>
+                  <td>{event.event_date}</td>
+                  <td>
+                    <button
+                      className="events-update-button"
+                      onClick={() => handleUpdate(event)}
+                    >
+                      Update
+                    </button>
+                    <button
+                      className="events-delete-button"
+                      onClick={() => handleDelete(event.event_id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
