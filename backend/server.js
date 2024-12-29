@@ -5,6 +5,8 @@ const departmentRoutes = require('./routes/departmentRoutes');
 const clubRoutes = require('./routes/clubRoutes'); // Import club routes
 const officerRoutes = require('./routes/officerRoutes'); // Import officer routes
 const eventRoutes = require('./routes/eventRoutes'); // Import event routes
+const courseRoutes = require('./routes/courseRoutes'); // Import course routes
+const userRoutes = require('./routes/userRoutes'); // Import user routes
 const path = require('path');
 
 const app = express();
@@ -29,6 +31,8 @@ app.use('/api', departmentRoutes);
 app.use('/api', clubRoutes); // Add club routes
 app.use('/api', officerRoutes); // Add officer routes
 app.use('/api', eventRoutes); // Add event routes
+app.use('/api', courseRoutes); // Add course routes
+app.use('/api', userRoutes); // Add user routes
 
 app.get('/', (req, res) => {
     res.send('Welcome to the Home Page');

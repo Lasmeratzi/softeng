@@ -81,34 +81,32 @@
   background-color: #d62828;
 }
 
-
 /* Main Content Styling */
 .events-main-section33 {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
   padding-top: 10%; /* Account for navbar height */
   padding: 20px;
 }
 
-.events-main-section33{
+.events-main-section33 {
   padding-top: 92px;
   padding-left: 55px;
 }
 
-.events-left-section{
+.events-left-section {
   padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    width: 41.5%;
-    
-
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
 }
 
 .events-right-section {
-  width: 48%;
+  width: 100%;
   padding: 20px;
   border-radius: 10px;
   padding-top: 2px;
@@ -120,18 +118,27 @@
   flex-direction: column;
   gap: 0px;
   padding-top: 0%;
-
 }
-.upcoming-title22{    
+
+.events-form-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.events-form-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.upcoming-title22 {
   font-family: 'Manuka', sans-serif;
-    font-size: 5.0rem;
-    font-weight: bold;
-    letter-spacing: 2px;
-    color: #321bdd;
-    text-align: center;
-
- 
-
+  font-size: 5.0rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: #321bdd;
+  text-align: center;
 }
 
 .events-input-field {
@@ -139,6 +146,7 @@
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 14px;
+  margin-bottom: 10px; /* Add space between input fields */
 }
 
 .events-submit-button {
@@ -149,6 +157,7 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
+  margin-top: 20px; /* Add space above the submit button */
 }
 
 .events-submit-button:hover {
@@ -160,16 +169,15 @@
   width: 100%;
   border-collapse: collapse;
   border-color: #ccc;
-  margin-top: 0px;
+  margin-top: 20px; /* Add space above the table */
 }
-
 
 .events-table th,
 .events-table td {
-padding: 10px;
+  padding: 10px;
   border: 1px solid #ccc;
   text-align: left;
-  color:#000
+  color: #000;
 }
 
 .events-update-button,
@@ -186,10 +194,6 @@ padding: 10px;
   border-radius: 5px;
 }
 
-.events-upcoming-title {
- padding-top: 50;
-}
-
 .events-update-button:hover {
   background-color: #19c8ff;
 }
@@ -202,6 +206,48 @@ padding: 10px;
 
 .events-delete-button:hover {
   background-color: #d62828;
+}
+
+/* Department and Club Section Styling */
+.events-department-club-section {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.events-department-cards-container,
+.events-club-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.events-department-card,
+.events-club-card {
+  flex: 1;
+  min-width: 200px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.events-department-card:hover,
+.events-club-card:hover {
+  transform: scale(1.05);
+}
+
+.events-department-logo,
+.events-club-logo {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.events-department-details,
+.events-club-details {
+  text-align: center;
 }
 
 @font-face {

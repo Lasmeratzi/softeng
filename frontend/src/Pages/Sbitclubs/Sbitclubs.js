@@ -15,6 +15,7 @@ function Sbitclubs({ departmentId }) {
   const [clubs, setClubs] = useState([]);
   const [events, setEvents] = useState([]);
   const [selectedClub, setSelectedClub] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
   const [officers, setOfficers] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -54,6 +55,7 @@ function Sbitclubs({ departmentId }) {
 
   const handleCardClick = (club) => {
     setSelectedClub(club);
+    setSelectedEvent(null); // Reset the selected event to close the event post
     fetchOfficers(club.club_id);
     setIsModalOpen(true);
   };
@@ -66,15 +68,14 @@ function Sbitclubs({ departmentId }) {
     e.preventDefault();
   };
 
+  const handleSeeDetailsClick = (event) => {
+    setSelectedEvent(event);
+  };
+
   // Function to filter events based on selected club
   const getClubEvents = () => {
     if (selectedClub) {
-      const filteredEvents = events.filter(event => event.club_id === selectedClub.club_id);
-      const filledEvents = [...filteredEvents];
-      while (filledEvents.length < 5) {
-        filledEvents.push({ event_id: `empty-${filledEvents.length}`, event_name: '', event_date: '', event_venue: '' });
-      }
-      return filledEvents;
+      return events.filter(event => event.club_id === selectedClub.club_id);
     }
     return [];
   };
@@ -94,7 +95,8 @@ function Sbitclubs({ departmentId }) {
               <a href="/sbitclubs" onClick={() => navigate('/sbitclubs')}>SBIT</a>
               <a href="/shtmclubs" onClick={() => navigate('/shtmclubs')}>SHTM</a>
               <a href="/sarfaidclubs" onClick={() => navigate('/sarfaidclubs')}>SARFAID</a>
-              <a href="/sslate" onClick={() => navigate('/sslate')}>SSLATE</a>
+              <a href="/sslateclubs" onClick={() => navigate('/sslateclubs')}>SSLATE</a>
+              <a href="/iclubs" onClick={() => navigate('/iclubs')}>INTEREST CLUBS</a>
             </div>
           </li>
         </ul>
@@ -104,7 +106,7 @@ function Sbitclubs({ departmentId }) {
       <section className="sbitclubs-main-section">
         <div className="sbitclubs-left-section">
           <div className="sbitclubs-department-card">
-          <img src={logo4} alt="LCCB Logo4" className="sbitclubs-logo4" />
+            <img src={logo4} alt="LCCB Logo4" className="sbitclubs-logo4" />
           </div>
 
           <div className="sbitclubs-info-section">
@@ -113,29 +115,40 @@ function Sbitclubs({ departmentId }) {
               The School of Business and Information Technology is geared to lead the students to become not only academically innovative but also equipped with competent skills and essential characteristics to keep up and face the challenges in this ever changing world.
             </p>
           </div>
-        </div>
-        <div className="sbitclubs-center-section">
-          <h1 className="sbitclubs-upcoming-title">SBIT CLUBS
-            <img src={logo3} alt="LCCB Logo3" className="sbitclubs-logo3" />
-            AY 24-25
-          </h1>
+
           <div className="sbitclubs-event-cards-container">
             {clubs.map(club => (
               <div className="sbitclubs-event-card" key={club.club_id} style={{ backgroundColor: club.club_color }} onClick={() => handleCardClick(club)}>
                 <img src={`http://localhost:5000/uploads/${club.club_logo}`} alt={`${club.club_name} Logo`} className="sbitclubs-event-logo" />
                 <div className="sbitclubs-event-details">
                   <h3>{club.club_name}</h3>
+                  <h4>{club.course_abbrev}</h4>
                 </div>
               </div>
             ))}
           </div>
-          <h2 className="sbitclubs-events-table-title">Club Events From {selectedClub ? selectedClub.club_name : "Selected Club"}</h2>
+        </div>
+        <div className="sbitclubs-center-section">
+          {selectedEvent && (
+            <div className="event-post">
+              <div className="event-header">
+                <img src={`http://localhost:5000/uploads/${selectedClub.club_logo}`} alt="Club Logo" className="event-club-logo" />
+                <div className="event-club-name">{selectedClub.club_name}</div>
+              </div>
+              <div className="event-name2">{selectedEvent.event_name}</div>
+              <div className="event-details2">{selectedEvent.event_details}</div>
+             
+              <div className="event-details2">{selectedEvent.event_date ? new Date(selectedEvent.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</div>
+              {selectedEvent.event_post && <img src={`http://localhost:5000/uploads/${selectedEvent.event_post}`} alt="Event Post" className="event-post-image" />}
+            </div>
+          )}
+          <h2 className="sbitclubs-events-table-title">Posts From {selectedClub ? selectedClub.club_name : "Selected Club"}</h2>
           <table className="sbitclubs-events-table">
             <thead>
               <tr>
-                <th>Event Name</th>
-                <th>Event Date</th>
-                <th>Event Venue</th>
+                <th>Club Post</th>
+                <th>Date</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -143,7 +156,8 @@ function Sbitclubs({ departmentId }) {
                 <tr key={event.event_id}>
                   <td>{event.event_name}</td>
                   <td>{event.event_date ? new Date(event.event_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : ''}</td>
-                  <td>{event.event_venue}</td>
+                
+                  <td><button onClick={() => handleSeeDetailsClick(event)}>See Details</button></td>
                 </tr>
               ))}
             </tbody>
