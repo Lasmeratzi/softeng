@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import './Shome.css'; // Adjust the path to your CSS file
 import logo from './lccblogo2.png'; // Adjust the path to your image file
@@ -8,23 +8,56 @@ import logo3 from './lolblck.png'; // Adjust the path to your image file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
 import Footer from '../../components/Footer/Footer'; // Adjust the path to your Footer component
+import { useSpring, animated } from 'react-spring'; // Import react-spring
+import { ToastContainer, toast } from 'react-toastify'; // Import react-toastify
+import 'react-toastify/dist/ReactToastify.css'; // Import react-toastify CSS
 
 function Shome() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [departments, setDepartments] = useState([]);
   const [events, setEvents] = useState([]);
   const [clubs, setClubs] = useState([]);
   const [selectedDepartment, setSelectedDepartment] = useState(null);
   const [departmentEvents, setDepartmentEvents] = useState([]);
   const [selectedClub, setSelectedClub] = useState(null);
-  const [officers, setOfficers] = useState([]);
+  const [clubEvents, setClubEvents] = useState([]);
   const [isEventTableVisible, setIsEventTableVisible] = useState(false);
+  const [isFadingOut, setIsFadingOut] = useState(false); // State for fade-out animation
+  const [username, setUsername] = useState(''); // State to store the username
 
   useEffect(() => {
+    const loggedIn = sessionStorage.getItem('loggedIn');
+    const userId = sessionStorage.getItem('user_id'); // Get user_id from session storage
+    if (!loggedIn) {
+      navigate('/'); // Redirect to login if not logged in
+    }
+
+    if (location.state && location.state.loggedIn) {
+      showSuccessNotification();
+      sessionStorage.setItem('loggedIn', true); // Set session storage on successful login
+    }
+    fetchUsername(userId); // Fetch username based on user_id
     fetchDepartments();
     fetchEvents();
     fetchClubs();
-  }, []);
+  }, [location.state]);
+
+  const showSuccessNotification = () => {
+    toast.success("Login successful", {
+      position: "top-center",
+      autoClose: 5000,
+    });
+  };
+
+  const fetchUsername = async (userId) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/users/${userId}/username`);
+      setUsername(response.data.username);
+    } catch (error) {
+      console.error('Error fetching username:', error);
+    }
+  };
 
   const fetchDepartments = async () => {
     try {
@@ -47,7 +80,7 @@ function Shome() {
   const fetchClubs = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/clubs');
-      setClubs(response.data.slice(-3)); // Get the 3 most recently added clubs
+      setClubs(response.data);
     } catch (error) {
       console.error('Error fetching clubs:', error);
     }
@@ -55,53 +88,51 @@ function Shome() {
 
   const handleCardClick = async (department) => {
     setSelectedDepartment(department);
+    setSelectedClub(null); // Reset the selected club
+    setClubEvents([]); // Clear club events
+    setIsEventTableVisible(false); // Hide the event table
     try {
       const response = await axios.get('http://localhost:5000/api/clubs');
       const filteredClubs = response.data.filter(club => club.department_id === department.department_id);
-      
-      const clubIds = filteredClubs.map(club => club.club_id);
+      setClubs(filteredClubs);
+    } catch (error) {
+      console.error('Error fetching department clubs:', error);
+    }
+  };
 
-      const eventsResponse = await axios.get('http://localhost:5000/api/events');
-      const filteredEvents = eventsResponse.data.filter(event => clubIds.includes(event.club_id));
-
-      // Fill the remaining rows with empty data to make up 5 rows
-      const filledEvents = [...filteredEvents];
-      while (filledEvents.length < 5) {
-        filledEvents.push({ event_id: `empty-${filledEvents.length}`, event_name: '', event_date: '', event_venue: '' });
-      }
-
-      setDepartmentEvents(filledEvents);
+  const fetchClubEvents = async (club) => {
+    setSelectedClub(club);
+    try {
+      const response = await axios.get('http://localhost:5000/api/events');
+      const filteredEvents = response.data.filter(event => event.club_id === club.club_id);
+      setClubEvents(filteredEvents);
       setIsEventTableVisible(true);
     } catch (error) {
-      console.error('Error fetching department events:', error);
+      console.error('Error fetching club events:', error);
     }
-  };
-
-  const fetchOfficers = async (clubId) => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/officers');
-      const filteredOfficers = response.data.filter(officer => officer.club_id === clubId);
-      setOfficers(filteredOfficers);
-    } catch (error) {
-      console.error('Error fetching officers:', error);
-    }
-  };
-
-  const handleClubClick = (club) => {
-    setSelectedClub(club);
-    fetchOfficers(club.club_id);
   };
 
   const handleLogout = () => {
-    navigate('/');
+    sessionStorage.removeItem('loggedIn'); // Remove session on logout
+    sessionStorage.removeItem('user_id'); // Remove user_id on logout
+    setIsFadingOut(true);
+    setTimeout(() => {
+      navigate('/');
+    }, 300); // Match the duration of the animation
   };
 
   const preventNavigation = (e) => {
     e.preventDefault();
   };
 
+  const fadeOutStyles = useSpring({
+    opacity: isFadingOut ? 0 : 1,
+    config: { duration: 300 },
+  });
+
   return (
-    <div className="student-home-container">
+    <animated.div style={fadeOutStyles} className="student-home-container">
+      <ToastContainer />
       <nav className="student-navbar">
         <img src={logo} alt="LCCB Logo" className="student-logo" />
         <img src={logo2} alt="LCCB Logo2" className="student-logo2" />
@@ -116,10 +147,14 @@ function Shome() {
               <a href="/shtmclubs" onClick={() => navigate('/shtmclubs')}>SHTM</a>
               <a href="/sarfaidclubs" onClick={() => navigate('/sarfaidclubs')}>SARFAID</a>
               <a href="/sslate" onClick={() => navigate('/sslate')}>SSLATE</a>
+              <a href="/iclubs" onClick={() => navigate('/iclubs')}>INTEREST CLUBS</a>
             </div>
           </li>
         </ul>
-        <button className="student-logout-button" onClick={handleLogout}>LOG OUT</button>
+        <div className="student-username-container">
+          <span className="student-username">Welcome, user{username}</span>
+          <button className="student-logout-button" onClick={handleLogout}>LOG OUT</button>
+        </div>
       </nav>
 
       <section className="student-main-section">
@@ -157,23 +192,43 @@ function Shome() {
               </div>
             ))}
           </div>
-          <section className="student-events-section">
-            <h2 className="student-upcoming-title2">Club Events From {selectedDepartment ? selectedDepartment.department_name : "Selected Department"}</h2>
-            <table className="events-table2">
-              <tbody>
-              {departmentEvents.map(event => (
-                  <tr key={event.event_id}>
-                    <td>{event.event_name}</td>
-                    <td>{event.event_date ? new Date(event.event_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : ''}</td>
-                    <td>{event.event_venue}</td>
-                  </tr>
+          {selectedDepartment && (
+            <div>
+              <h2 className="student-upcoming-title">Clubs in {selectedDepartment.department_name}</h2>
+              <div className="student-event-cards-container">
+                {clubs.map(club => (
+                  <div
+                    className="student-event-card"
+                    key={club.club_id}
+                    style={{ backgroundColor: selectedDepartment.department_color }}
+                  >
+                    <img src={`http://localhost:5000/uploads/${club.club_logo}`} alt={`${club.club_name} Logo`} className="student-event-logo" />
+                    <div className="student-event-details">
+                      <h3>{club.club_name}</h3>
+                      <button onClick={() => fetchClubEvents(club)} className="student-view-events-button">View Events</button>
+                    </div>
+                  </div>
                 ))}
-              </tbody>
-            </table>
-          </section>
+              </div>
+            </div>
+          )}
+          {selectedClub && isEventTableVisible && (
+            <section className="student-events-section">
+              <h2 className="student-upcoming-title2">Events of {selectedClub.club_name}</h2>
+              <table className="events-table2">
+                <tbody>
+                  {clubEvents.map(event => (
+                    <tr key={event.event_id}>
+                      <td>{event.event_name}</td>
+                      <td>{event.event_date ? new Date(event.event_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : ''}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </section>
+          )}
         </div>
         <div className="student-right-section">
-          <h2 className="student-upcoming-title3">Recently Added Clubs</h2>
           <h2 className="student-upcoming-title4">Academic Year 2024-2025</h2>
           <table className="student-clubs-table">
             <thead>
@@ -182,7 +237,11 @@ function Shome() {
               {clubs.map(club => (
                 <tr key={club.club_id}>
                   <td><img src={`http://localhost:5000/uploads/${club.club_logo}`} alt={`${club.club_name} Logo`} className="student-club-logo" /></td>
-                  <td>{club.club_name}</td>
+                  <td>
+                    {club.club_name}
+                    <br />
+                    <span style={{ fontSize: '14px' }}>{club.course_abbrev}</span>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -190,7 +249,7 @@ function Shome() {
         </div>
       </section>
       <Footer /> {/* Add Footer component here */}
-    </div>
+    </animated.div>
   );
 }
 

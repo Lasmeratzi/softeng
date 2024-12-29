@@ -23,6 +23,7 @@ html, body {
   width: auto;
   background-color: rgb(9, 9, 11);
   height: 50px; /* Set the height of the footer */
+  margin-top: 50px;
 }
 
 .footer-container {
@@ -35,7 +36,7 @@ html, body {
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  
 }
 
 .logo-link {
@@ -46,12 +47,12 @@ html, body {
 .logo-link:hover {
   opacity: 1;
 }
-.student-logo {
+.student-logo5 {
   height: 40px;
   width: auto;
   margin-top: 5px;
 }
-.student-logo2 {
+.student-logo4 {
   height: 20px;
   width: auto;
   margin-top: 5px;

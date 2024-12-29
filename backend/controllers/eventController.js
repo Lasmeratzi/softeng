@@ -5,15 +5,16 @@ const Event = require('../models/eventModels');
 
 // Controller to add a new event
 exports.addEvent = (req, res) => {
-    const eventData = req.body;
+    const { clubId, eventName, eventDetails, eventDate } = req.body;
+    const eventPost = req.file ? req.file.filename : null; // Handle event_post
 
     // Validate that the required fields are present
-    if (!eventData.clubId || !eventData.eventName || !eventData.eventDetails || !eventData.eventVenue || !eventData.eventDate) {
+    if (!clubId || !eventName || !eventDetails || !eventDate || !eventPost) {
         return res.status(400).json({ message: 'Missing required fields' });
     }
 
     // Create the event entry in the database
-    Event.create(eventData, (err, result) => {
+    Event.create({ clubId, eventName, eventDetails, eventPost, eventDate }, (err, result) => {
         if (err) {
             console.error('Error adding event:', err);
             return res.status(500).json({ message: 'Error adding event', error: err });
@@ -53,11 +54,12 @@ exports.getEventById = (req, res) => {
 // Controller to update an existing event
 exports.updateEvent = (req, res) => {
     const eventId = req.params.id;
-    const eventData = req.body;
+    const { clubId, eventName, eventDetails, eventDate } = req.body;
+    const eventPost = req.file ? req.file.filename : req.body.eventPost; // Handle event_post
 
     // Ensure all fields to be updated are present
-    const sql = 'UPDATE events SET club_id = ?, event_name = ?, event_details = ?, event_venue = ?, event_date = ? WHERE event_id = ?';
-    db.query(sql, [eventData.clubId, eventData.eventName, eventData.eventDetails, eventData.eventVenue, eventData.eventDate, eventId], (err, result) => {
+    const sql = 'UPDATE events SET club_id = ?, event_name = ?, event_details = ?, event_post = ?, event_date = ? WHERE event_id = ?';
+    db.query(sql, [clubId, eventName, eventDetails, eventPost, eventDate, eventId], (err, result) => {
         if (err) {
             console.error('Error updating event:', err);
             return res.status(500).json({ message: 'Error updating event', error: err });

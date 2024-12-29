@@ -7,6 +7,8 @@ import logo from './lccb.png';
 function Officers() {
   const navigate = useNavigate();
   const [officers, setOfficers] = useState([]);
+  const [clubs, setClubs] = useState([]); // State to hold clubs data
+  const [selectedClub, setSelectedClub] = useState('');
   const [officerData, setOfficerData] = useState({
     officerId: '',
     clubId: '',
@@ -18,14 +20,32 @@ function Officers() {
 
   useEffect(() => {
     fetchOfficers();
+    fetchClubs();
   }, []);
 
-  const fetchOfficers = async () => {
+  useEffect(() => {
+    if (selectedClub) {
+      fetchOfficers(selectedClub);
+    } else {
+      setOfficers([]); // Clear officers if no club is selected
+    }
+  }, [selectedClub]);
+
+  const fetchOfficers = async (clubId) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/officers');
+      const response = await axios.get(`http://localhost:5000/api/officers?clubId=${clubId}`);
       setOfficers(response.data);
     } catch (error) {
       console.error('Error fetching officers:', error);
+    }
+  };
+
+  const fetchClubs = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/clubs');
+      setClubs(response.data);
+    } catch (error) {
+      console.error('Error fetching clubs:', error);
     }
   };
 
@@ -56,7 +76,7 @@ function Officers() {
         alert('Officer added successfully!');
       }
       setOfficerData({ officerId: '', clubId: '', officerFname: '', officerLname: '', position: '' });
-      fetchOfficers(); // Fetch updated data after submission
+      fetchOfficers(selectedClub); // Fetch updated data after submission
     } catch (error) {
       console.error('Error:', error);
       alert(`There was an error ${isUpdating ? 'updating' : 'adding'} the officer.`);
@@ -79,7 +99,7 @@ function Officers() {
       try {
         await axios.delete(`http://localhost:5000/api/officers/${officerId}`);
         alert('Officer deleted successfully!');
-        fetchOfficers();
+        fetchOfficers(selectedClub);
       } catch (error) {
         console.error('Error deleting officer:', error);
         alert('There was an error deleting the officer.');
@@ -98,33 +118,34 @@ function Officers() {
 
   return (
     <div className="profile-container22">
-    <nav className="events-navbar">
-<div className="events-left-navbar">
- <img src={logo} alt="LCCB Logo" className="events-logo" />
- <ul className="events-nav-links">
- <h1 className="events-site-title">LCCB NEXUS </h1>
-   <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
-   <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
-   <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
- </ul>
-</div>
-<button className="events-logout-button" onClick={handleLogout}>Log out</button>
-</nav>
+      <nav className="events-navbar">
+        <div className="events-left-navbar">
+          <img src={logo} alt="LCCB Logo" className="events-logo" />
+          <ul className="events-nav-links">
+            <h1 className="events-site-title">LCCB NEXUS</h1>
+            <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
+            <li><a href="/officers" onClick={handleNavigation('/officers')}>OFFICERS</a></li>
+          </ul>
+        </div>
+        <button className="events-logout-button" onClick={handleLogout}>Log out</button>
+      </nav>
 
       <div className="main-section33">
         <div className="left-section33">
-         
           <form className="events-form33" onSubmit={handleSubmit}>
-          <h2 className="upcoming-title33">CLUB OFFICERS</h2>
+            <h2 className="upcoming-title33">CLUB OFFICERS</h2>
             <label>Club-ID</label>
-            <input 
-              type="text" 
-              name="clubId" 
-              placeholder="Club ID" 
+            <select
+              name="clubId"
               value={officerData.clubId}
               onChange={handleInputChange}
-              className="input-field33" 
-            />
+              className="input-field33"
+            >
+              <option value="">Select Club</option>
+              {clubs.map(club => (
+                <option key={club.club_id} value={club.club_id}>{club.club_name}</option>
+              ))}
+            </select>
             <label>First Name</label>
             <input 
               type="text" 
@@ -134,7 +155,7 @@ function Officers() {
               onChange={handleInputChange}
               className="input-field33" 
             />
-       <label>Last Name</label>
+            <label>Last Name</label>
             <input 
               type="text" 
               name="officerLname" 
@@ -159,6 +180,25 @@ function Officers() {
         </div>
         <div className="right-section33">
           <h2 className="upcoming-title33">EXISTING OFFICERS</h2>
+          <div className="officers-filter-section">
+            <div className="officers-form-row">
+              <div className="officers-form-column">
+                <label>Club</label>
+                <select
+                  name="selectedClub"
+                  value={selectedClub}
+                  onChange={(e) => setSelectedClub(e.target.value)}
+                  className="officers-input-field"
+                >
+                  <option value="">Select Club</option>
+                  {clubs.map(club => (
+                    <option key={club.club_id} value={club.club_id}>{club.club_name}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+          </div>
+
           <table className="officers-table33">
             <thead>
               <tr>
@@ -171,19 +211,21 @@ function Officers() {
               </tr>
             </thead>
             <tbody>
-              {officers.map(officer => (
-                <tr key={officer.officer_id}>
-                  <td>{officer.officer_id}</td>
-                  <td>{officer.club_id}</td>
-                  <td>{officer.officer_fname}</td>
-                  <td>{officer.officer_lname}</td>
-                  <td>{officer.position}</td>
-                  <td>
-                    <button className="update-button33" onClick={() => handleUpdate(officer)}>Update</button>
-                    <button className="delete-button33" onClick={() => handleDelete(officer.officer_id)}>Delete</button>
-                  </td>
-                </tr>
-              ))}
+              {officers
+                .filter((officer) => officer.club_id === Number(selectedClub))
+                .map((officer) => (
+                  <tr key={officer.officer_id}>
+                    <td>{officer.officer_id}</td>
+                    <td>{officer.club_id}</td>
+                    <td>{officer.officer_fname}</td>
+                    <td>{officer.officer_lname}</td>
+                    <td>{officer.position}</td>
+                    <td>
+                      <button className="update-button33" onClick={() => handleUpdate(officer)}>Update</button>
+                      <button className="delete-button33" onClick={() => handleDelete(officer.officer_id)}>Delete</button>
+                    </td>
+                  </tr>
+                ))}
             </tbody>
           </table>
         </div>

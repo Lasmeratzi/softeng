@@ -4,31 +4,14 @@
   font-weight: bold;
 }
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./Montserrat-Light.ttf') format('truetype');
-  font-weight: 300;
-}
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./Montserrat-Medium.ttf') format('truetype');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./Montserrat-Bold.ttf') 1  format('truetype');
-  font-weight: 700;
-}
-
-.profile-container22 {
+.profile-container22x {
   width: 100%;
   height: 100vh;
   position: relative;
 }
 
-.navbar22 {
+.navbar22x {
   display: flex;
   align-items: center;
   padding: 0px 10px;
@@ -40,13 +23,13 @@
   width: 100%;
 }
 
-.logo22 {
+.logo22x {
   width: 50px;
   height: auto;
   margin: 0;
 }
 
-.site-title22 {
+.site-title22x {
   font-family: 'Manuka', sans-serif;
   font-size: 35px;
   font-weight: bold;
@@ -55,7 +38,7 @@
   margin: 0px 100px 0px 10px;
 }
 
-.nav-links22 {
+.nav-links22x {
   font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   color: #f2f2f2;
@@ -68,7 +51,7 @@
   flex-grow: 1; /* Allow navigation to grow and stay left */
 }
 
-.nav-links22 li a {
+.nav-links22x li a {
   position: relative;
   text-decoration: none;
   color: #f2f2f2;
@@ -76,11 +59,11 @@
   transition: color 0.3s ease;
 }
 
-.nav-links22 li a:hover {
+.nav-links22x li a:hover {
   color: #19c8ff; /* Light blue hover effect */
 }
 
-.logout-button22 {
+.logout-button22x {
   background-color: #19c8ff;
   color: white;
   padding: 10px 30px;
@@ -96,62 +79,98 @@
   transform: translateY(-50%);
 }
 
-.main-section22 {
+.main-section22x {
   background-image: url(lccb2.png), rgba(255, 255, 255, 0.7);
   background-size: cover;
   background-position: center;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
-  align-items: flex-start;
   position: relative;
 }
 
-.events-form22 {
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-  display: flex
-;
-  flex-direction: column;
-  gap: 3px;
-  height: fit-content;
-  width: 90%;
+.titlex {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
-.input-field22 {
+.horizontal-form22x {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+.form-groupx {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 20px); /* Adjust width to create a balanced layout */
+  margin-bottom: 10px; /* Add spacing between groups */
+}
+
+.input-field22x {
   padding: 10px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  width: 100%;
+  margin-top: 5px;
 }
 
-.submit-button22 {
+.color-input-wrapperx {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-pickerx {
+  width: 50px;
+  height: 50px;
+}
+
+.color-code-inputx {
+  width: 100px;
+}
+
+.submit-button22x {
   background-color: #19c8ff;
   color: white;
   padding: 10px;
+  width: 10%;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  align-self: flex-end; /* Align button with the form */
 }
 
-.departments-table22 {
-  padding-top: 5px;
+.table-container22x {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.departments-table22x {
   width: 100%;
   border-collapse: collapse;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 5px;
 }
 
-.departments-table22 th, .departments-table22 td {
-  padding-top: 5px;
+.departments-table22x th, .departments-table22x td {
   padding: 10px;
   border: 1px solid #ccc;
   text-align: left;
-  
 }
 
-.update-button22, .delete-button22 {
+.update-button22x, .delete-button22x, .check-courses-button22x{
   background-color: #19c8ff;
   color: white;
   border: none;
@@ -160,18 +179,29 @@
   border-radius: 5px;
   cursor: pointer;
 }
-.update-button22 h2 {
-  padding-top: 10px; /* Adjust this value as needed */
-}
-.left-section22 {
- padding-top: 70px;
- gap: 30px;
 
+.update-button22x, .check-courses-button22x {
+  background-color: #19c8ff;
 }
 
-.delete-button22 {
+.delete-button22x {
   background-color: red;
 }
-.right-section22 {
-  padding-top: 70px;
+.titlexz {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+.main-section22x h2 {
+  color: #321bdd;
+  font-family: 'Noto Sans', sans-serif;
+}
+.footer-section22 {
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  margin-top: 20px;
 }

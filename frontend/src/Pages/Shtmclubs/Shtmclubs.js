@@ -1,13 +1,64 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Shtmclubs.css'; // Assuming the file is named 'Shtmclubs.css'
-import logo from './lccb.png';
-import SHTMLogo from './png-logos.png';
-import SBITLogo from './logo1.png';
-import SARFAIDLogo from './logos-png-8.png';
+import './Shtmclubs.css'; // Adjust the path to your CSS file
+import logo from './lccblogo2.png'; // Adjust the path to your image file
+import logo2 from './lolwh.png'; // Adjust the path to your image file
+import logo3 from './lolblck.png'; // Adjust the path to your image file
+import logo4 from './SHTM.png'; // Adjust the path to your image file
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCaretDown } from '@fortawesome/free-solid-svg-icons';
+import Footer from '../../components/Footer/Footer'; // Adjust the path to your Footer component
 
-function Shtmclubs() {
+function Shtmclubs({ departmentId }) {
   const navigate = useNavigate();
+  const [clubs, setClubs] = useState([]);
+  const [events, setEvents] = useState([]);
+  const [selectedClub, setSelectedClub] = useState(null);
+  const [selectedEvent, setSelectedEvent] = useState(null);
+  const [officers, setOfficers] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  useEffect(() => {
+    fetchClubs();
+    fetchEvents();
+  }, []);
+
+  const fetchClubs = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/clubs');
+      const filteredClubs = response.data.filter(club => club.department_id === departmentId);
+      setClubs(filteredClubs);
+    } catch (error) {
+      console.error('Error fetching clubs:', error);
+    }
+  };
+
+  const fetchEvents = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/events');
+      setEvents(response.data);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+    }
+  };
+
+  const fetchOfficers = async (clubId) => {
+    try {
+      const response = await axios.get(`http://localhost:5000/api/officers`);
+      const filteredOfficers = response.data.filter(officer => officer.club_id === clubId);
+      setOfficers(filteredOfficers);
+    } catch (error) {
+      console.error('Error fetching officers:', error);
+    }
+  };
+
+  const handleCardClick = (club) => {
+    setSelectedClub(club);
+    setSelectedEvent(null); // Reset the selected event to close the event post
+    fetchOfficers(club.club_id);
+    setIsModalOpen(true);
+  };
 
   const handleLogout = () => {
     navigate('/');
@@ -17,60 +68,125 @@ function Shtmclubs() {
     e.preventDefault();
   };
 
-  const handleDropdownChange = (e) => {
-    console.log(`Selected: ${e.target.value}`);
+  const handleSeeDetailsClick = (event) => {
+    setSelectedEvent(event);
+  };
+
+  // Function to filter events based on selected club
+  const getClubEvents = () => {
+    if (selectedClub) {
+      return events.filter(event => event.club_id === selectedClub.club_id);
+    }
+    return [];
   };
 
   return (
-    <div className="Shtmclubs-container">
-      <nav className="navbar">
-        <img src={logo} alt="LCCB Logo" className="logo" />
-        <h1 className="site-title">LCCB - CLUBSPHERE</h1>
-        <ul className="nav-links">
-          <li><a href="/shome">HOME</a></li>
-          <li><a href="/about">ABOUT</a></li>
+    <div className="sbitclubs-container">
+      <nav className="sbitclubs-navbar">
+        <img src={logo} alt="LCCB Logo" className="sbitclubs-logo" />
+        <img src={logo2} alt="LCCB Logo2" className="sbitclubs-logo2" />
+        <ul className="sbitclubs-nav-links">
+          <li><a href="/shome" onClick={() => navigate('/shome')}>HOME</a></li>
+          <li><a href="/about1" onClick={() => navigate('/about1')}>ABOUT</a></li>
           <li>
             <a href="#" onClick={preventNavigation}>CLUBS</a>
-            <div className="dropdowns">
+            <FontAwesomeIcon icon={faCaretDown} className="dropdown-icon" />
+            <div className="sbitclubs-dropdowns">
               <a href="/sbitclubs" onClick={() => navigate('/sbitclubs')}>SBIT</a>
-              <a href="/Shtmclubs" onClick={() => navigate('/shtmclubs')}>SHTM</a>
-              <a href="/Sarfaidclubs" onClick={() => navigate('/sarfaidclubs')}>SARFAID</a>
-              <a href="/sslate" onClick={() => navigate('/sslate')}>SSLATE</a>
+              <a href="/shtmclubs" onClick={() => navigate('/shtmclubs')}>SHTM</a>
+              <a href="/sarfaidclubs" onClick={() => navigate('/sarfaidclubs')}>SARFAID</a>
+              <a href="/sslateclubs" onClick={() => navigate('/sslateclubs')}>SSLATE</a>
+              <a href="/iclubs" onClick={() => navigate('/iclubs')}>INTEREST CLUBS</a>
             </div>
           </li>
         </ul>
-        <button className="logout-button" onClick={handleLogout}>Log out</button>
+        <button className="sbitclubs-logout-button" onClick={handleLogout}>LOG OUT</button>
       </nav>
 
-      <section className="hmain-section">
-        <h2 className="upcoming-title">  SHTM CLUBS UPCOMING EVENTS</h2>
-
-        <div className="hevent-cards-container">
-          <div className="hevent-card event-card5" key={11}>
-            <img src={SHTMLogo} alt="png-logos.png" className="hevent-logo" />
-            <div className="hevent-details">
-              <h3>BMAP Club</h3>
-              <h2>EVENT</h2>
-            </div>
+      <section className="sbitclubs-main-section">
+        <div className="sbitclubs-left-section">
+          <div className="sbitclubs-department-card">
+            <img src={logo4} alt="LCCB Logo4" className="sbitclubs-logo4" />
           </div>
 
-          <div className="hevent-card hevent-card6" key={12}>
-            <img src={SBITLogo} alt="logo1.png" className="hevent-logo" />
-            <div className="hevent-details">
-              <h3>SIPD Club</h3>
-              <h2>EVENT</h2>
-            </div>
+          <div className="sbitclubs-info-section">
+            <h3 className="sbitclubs-info-title">SCHOOL OF HOSPITALITY AND TOURISM MANAGEMENT</h3>
+            <p className="sbitclubs-info-body">
+            The School of Hospitality and Tourism Management prepares students for leadership roles in hospitality and tourism through hands-on learning, industry connections, and a focus on innovation and sustainability. Graduates are equipped to excel in hotel management, event planning, and tourism development.
+            </p>
           </div>
 
-          <div className="hevent-card hevent-card7" key={13}>
-            <img src={SARFAIDLogo} alt="SARFAID Logo" className="hevent-logo" />
-            <div className="hevent-details">
-              <h3>AYL Club</h3>
-              <h2>EVENT</h2>
-            </div>
+          <div className="sbitclubs-event-cards-container">
+            {clubs.map(club => (
+              <div className="sbitclubs-event-card" key={club.club_id} style={{ backgroundColor: club.club_color }} onClick={() => handleCardClick(club)}>
+                <img src={`http://localhost:5000/uploads/${club.club_logo}`} alt={`${club.club_name} Logo`} className="sbitclubs-event-logo" />
+                <div className="sbitclubs-event-details">
+                  <h3>{club.club_name}</h3>
+                  <h4>{club.course_abbrev}</h4>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
+        <div className="sbitclubs-center-section">
+          {selectedEvent && (
+            <div className="event-post">
+              <div className="event-header">
+                <img src={`http://localhost:5000/uploads/${selectedClub.club_logo}`} alt="Club Logo" className="event-club-logo" />
+                <div className="event-club-name">{selectedClub.club_name}</div>
+              </div>
+              <div className="event-name2">{selectedEvent.event_name}</div>
+              <div className="event-details2">{selectedEvent.event_details}</div>
+            
+              <div className="event-details2">{selectedEvent.event_date ? new Date(selectedEvent.event_date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : ''}</div>
+              {selectedEvent.event_post && <img src={`http://localhost:5000/uploads/${selectedEvent.event_post}`} alt="Event Post" className="event-post-image" />}
+            </div>
+          )}
+          <h2 className="sbitclubs-events-table-title">Posts From {selectedClub ? selectedClub.club_name : "Selected Club"}</h2>
+          <table className="sbitclubs-events-table">
+            <thead>
+              <tr>
+                <th>Club Posts</th>
+                <th>Date</th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {getClubEvents().map(event => (
+                <tr key={event.event_id}>
+                  <td>{event.event_name}</td>
+                  <td>{event.event_date ? new Date(event.event_date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' }) : ''}</td>
+                 
+                  <td><button onClick={() => handleSeeDetailsClick(event)}>See Details</button></td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <div className="sbitclubs-right-section">
+          <h2 className="sbitclubs-officers-title">Club Officers of</h2>
+          {selectedClub && (
+            <h3 className="sbitclubs-selected-club-name">{selectedClub.club_name}</h3>
+          )}
+          <table className="sbitclubs-officers-table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Position</th>
+              </tr>
+            </thead>
+            <tbody>
+              {officers.map(officer => (
+                <tr key={officer.officer_id}>
+                  <td>{officer.officer_fname} {officer.officer_lname}</td>
+                  <td>{officer.position}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </section>
+      <Footer /> {/* Add Footer component here */}
     </div>
   );
 }

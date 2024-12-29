@@ -4,25 +4,8 @@
   font-weight: bold;
 }
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./Montserrat-Light.ttf') format('truetype');
-  font-weight: 300;
-}
 
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./Montserrat-Medium.ttf') format('truetype');
-  font-weight: 500;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('./Montserrat-Bold.ttf') format('truetype');
-  font-weight: 700;
-}
-
-.profile-container33 {
+.profile-container22 {
   width: 100%;
   height: 100vh;
   position: relative;
@@ -45,7 +28,9 @@
   height: auto;
   margin: 0;
 }
-
+.title22 {
+  margin-top: 50px;
+}
 .site-title22 {
   font-family: 'Manuka', sans-serif;
   font-size: 35px;
@@ -54,9 +39,19 @@
   padding-left: 0px 5px 0px 5px;
   margin: 0px 100px 0px 10px;
 }
-
+.titlexz h2 {
+  margin-top: none;
+}
+.filter-section22 {
+  margin-left: -1090px;
+}
+.title22, .titlexz {
+  font-family: 'Noto Sans', sans-serif;
+  font-size: 27px; /* Adjusted to match Departments.css */
+  font-weight: bold;
+}
 .nav-links22 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Manuka', sans-serif;
   font-size: 20px;
   color: #f2f2f2;
   list-style: none;
@@ -89,127 +84,125 @@
   border-radius: 5px;
   cursor: pointer;
   font-weight: bold;
-  font-family: 'Montserrat', sans-serif;
-  margin-left: auto; /* Align to the right */
+  font-family: 'Manuka', sans-serif;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
-.main-section22 { 
+.main-section22 {
   background-image: url(lccb2.png), rgba(255, 255, 255, 0.7); 
   background-size: cover; 
   background-position: center;
-  height: 100%; display: flex; 
-  justify-content: space-around; 
-  padding: 20px; 
-  align-items: flex-start;
-  position: relative; }
-
-.left-section22, .right-section22 { 
-  flex: 1; 
-  margin: 0 10px; 
-  max-width: 45%;
-padding-top: 70px; }
-
-.upcoming-title22 { 
-  font-family: 'Manuka', sans-serif; 
-  font-size: 6.0rem; 
-  font-weight: bold; 
-  letter-spacing: 2px; 
-  color: #321bdd; 
-  text-align: center; 
-  margin: 0; }
-
-.events-form22 { 
-  padding: 20px; 
-  border-radius: 10px; 
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
+  height: 100%; 
   display: flex; 
-  flex-direction: column; 
-  gap: px; 
-  height: fit-content;
-  width: 90%;
- }
+  flex-direction: column;
+  align-items: center;
+  padding: 20px; 
+  position: relative; 
+  margin-top: 45px;
+}
 
-.input-field22 { 
-  padding: 10px; 
-  font-size: 1rem; 
-  border: 1px solid #ccc; 
-  border-radius: 5px; }
+.horizontal-form22 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
 
-.submit-button22 { 
-  padding: 10px; 
-  background-color: #321bdd; 
-  color: white; 
-  border: none; 
-  border-radius: 5px; 
-  font-size: 1rem; 
-  cursor: pointer; }
+.form-group22 {
+  display: flex;
+  flex-direction: column;
+  width: calc(50% - 20px); /* Adjust width to create a balanced layout */
+  margin-bottom: 10px; /* Add spacing between groups */
+}
 
-.submit-button22:hover { 
-  background-color: #19c8ff; }
+.input-field22 {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 100%;
+  margin-top: 5px;
+}
 
-.clubs-table22 { 
+.color-input-wrapper22 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.color-picker22 {
+  width: 50px;
+  height: 50px;
+}
+
+.color-code-input22 {
+  width: 100px;
+}
+
+.submit-button22 {
+  background-color: #19c8ff; 
+  color: white;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  align-self: flex-end; /* Align button with the form */
+  margin-top: 20px;
+}
+
+.table-container22 {
+  width: 100%; 
+  margin-top: 20px;
+}
+
+.clubs-table22 {
   width: 100%; 
   border-collapse: collapse; 
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
-  border-radius: 5px; }
-
-.clubs-table22 th, .clubs-table22 td { 
-  padding: 12px; text-align: left; 
-  border-bottom: 1px solid #ddd; }
-
-.clubs-table22 th { 
-  font-weight: bold; 
-  background-color: #f2f2f2; }
-
-.clubs-table22 td img { 
-  width: 100px; 
-  height: auto; }
-
-.clubs-table22 td .update-button22 { 
-  margin-right: 5px; 
-  padding: 8px 12px; 
-  background-color: #28a745; 
-  color: white; 
-  border: none; 
   border-radius: 5px; 
-  cursor: pointer; 
-  font-size: 0.9rem; }
+}
 
-.clubs-table22 td .update-button22:hover { 
-  background-color: #218838; }
+.clubs-table22 th, .clubs-table22 td {
+  padding: 10px;
+  border: 1px solid #ccc;
+  text-align: left;
+}
 
-.clubs-table22 td .delete-button22 { 
-  margin-right: 5px; 
-  padding: 8px 12px; 
-  background-color: #dc3545; 
-  color: white; 
-  border: none; 
-  border-radius: 5px; 
-  cursor: pointer; 
-  font-size: 0.9rem; }
+.update-button22, .delete-button22, .check-officers-button22 {
+  background-color: #19c8ff; 
+  color: white;
+  border: none;
+  padding: 5px 15px;
+  margin: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 
-.clubs-table22 td .delete-button22:hover { 
-  background-color: #c82333; }
+.update-button22, .check-officers-button22 {
+  background-color: #19c8ff; 
+}
 
-/* Dropdown Menu Styles */ 
-.dropdown-menu22 { 
-  position: absolute; 
-  background-color: rgba(92, 82, 82, 0.8); 
-  border-radius: 5px; 
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); 
-  list-style: none; 
-  padding: 10px 0; 
-  z-index: 100; 
-  margin-top: 10px; }
+.delete-button22 {
+  background-color: red;
+}
 
-.dropdown-menu22 li { 
-  padding: 10px 20px; }
-
-.dropdown-menu22 li a { 
-  color: black; 
-  text-decoration: none; 
-  display: block; 
-  transition: background-color 0.3s ease; }
-
-.dropdown-menu22 li a:hover { 
-  background-color: rgba(25, 200, 255, 0.3); }
+.main-section22 h2 {
+  color: #321bdd; 
+  font-family: 'Noto Sans', sans-serif;
+}
+.footer-section22 {
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  bottom: 0;
+  margin-top: 20px;
+}
