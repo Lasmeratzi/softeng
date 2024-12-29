@@ -26,7 +26,7 @@ exports.addClub = (req, res) => {
 
         // Update clubLogo field with the file path in the clubData object
         clubData.clubLogo = fileName;
-        
+
         // Create the club entry in the database
         Club.create(clubData, (err, result) => {
             if (err) {
@@ -40,8 +40,7 @@ exports.addClub = (req, res) => {
 
 // Controller to fetch all clubs
 exports.getAllClubs = (req, res) => {
-    const sql = 'SELECT * FROM clubs';
-    db.query(sql, (err, results) => {
+    Club.getAll((err, results) => {
         if (err) {
             console.error('Error fetching clubs:', err);
             return res.status(500).json({ message: 'Error fetching clubs', error: err });
@@ -53,8 +52,7 @@ exports.getAllClubs = (req, res) => {
 // Controller to fetch a single club by ID
 exports.getClubById = (req, res) => {
     const clubId = req.params.id;
-    const sql = 'SELECT * FROM clubs WHERE club_id = ?';
-    db.query(sql, [clubId], (err, results) => {
+    Club.getById(clubId, (err, results) => {
         if (err) {
             console.error('Error fetching club:', err);
             return res.status(500).json({ message: 'Error fetching club', error: err });
@@ -85,8 +83,7 @@ exports.updateClub = (req, res) => {
 // Controller to delete a club by ID
 exports.deleteClub = (req, res) => {
     const clubId = req.params.id;
-    const sql = 'DELETE FROM clubs WHERE club_id = ?';
-    db.query(sql, [clubId], (err, result) => {
+    Club.delete(clubId, (err, result) => {
         if (err) {
             console.error('Error deleting club:', err);
             return res.status(500).json({ message: 'Error deleting club', error: err });
@@ -94,3 +91,15 @@ exports.deleteClub = (req, res) => {
         res.status(204).json({ message: 'Club deleted successfully!' });
     });
 };
+// Controller to get clubs by department ID
+exports.getClubsByDepartment = (req, res) => {
+    const { departmentId } = req.params;
+    Club.getByDepartment(departmentId, (err, results) => {
+      if (err) {
+        console.error('Error fetching clubs by department:', err);
+        return res.status(500).json({ message: 'Error fetching clubs', error: err });
+      }
+      res.json(results);
+    });
+  };
+  

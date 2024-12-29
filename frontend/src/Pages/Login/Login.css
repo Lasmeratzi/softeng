@@ -55,6 +55,7 @@
   letter-spacing: 2px;
   z-index: 2; 
 }
+
 .college-title2 {
   position: absolute;
   top: 60px;
@@ -66,6 +67,7 @@
   letter-spacing: 2px;
   z-index: 2; 
 }
+
 .right-section {
   flex: 1;
   background-color: #f2f2f2;
@@ -82,7 +84,7 @@
 }
 
 .login-title {
-  color: #19c8ff;
+  color: #321bdd;
   font-family: 'Manuka', sans-serif;
   font-size: 4.5rem;
   margin: 10px 0;
@@ -137,6 +139,16 @@
   cursor: pointer;
 }
 
+.superadmin-button {
+  padding: 10px 20px;
+  background-color: #ff5733; /* Adjust color as needed */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .signup-text {
   margin-top: 20px;
   font-size: 0.9rem;
@@ -145,4 +157,14 @@
 .signup-text a {
   color: #321bdd;
   text-decoration: none;
+}
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+/* Add custom styles for the toast container if needed */
+.Toastify__toast--error {
+  background: red;
+  color: white;
 }

@@ -17,4 +17,10 @@ router.put('/clubs/:id', clubController.updateClub);
 // Route to delete a club by ID
 router.delete('/clubs/:id', clubController.deleteClub);
 
+// Route to get clubs by department ID
+router.get('/clubs/department/:departmentId', clubController.getClubsByDepartment);
+
+
+
+
 module.exports = router;

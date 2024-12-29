@@ -1,0 +1,212 @@
+@font-face {
+    font-family: 'Manuka';
+    src: url('./TestManuka-Bold.otf') format('opentype');
+    font-weight: bold;
+  }
+  
+  @font-face {
+    font-family: 'Noto Sans';
+    src: url('./NotoSans-Bold.ttf') format('truetype');
+    font-weight: 700;
+  }
+  
+  .course-container22x {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+  }
+  
+  /* Navbar Styling */
+  .events-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #0044cc; /* Bright blue */
+    color: white;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Left Navbar Section */
+  .events-left-navbar {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Logo Styling */
+  .events-logo {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+  }
+  
+  /* Site Title Styling */
+  .events-site-title {
+    font-family: 'Manuka', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-right: 30px; /* Add space between title and links */
+  }
+  
+  /* Navigation Links Styling */
+  .events-nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+  }
+  
+  .events-nav-links li {
+    margin: 0;
+  }
+  
+  .events-nav-links a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .events-nav-links a:hover {
+    color: #19c8ff; /* Greenish hover effect */
+  }
+  
+  /* Logout Button */
+  .events-logout-button {
+    background-color: #19c8ff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .events-logout-button:hover {
+    background-color: #d62828;
+  }
+  
+  /* Main Content Styling */
+  .main-section22x {
+    background-image: url(lccb2.png), rgba(255, 255, 255, 0.7);
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+  }
+  
+  .titlex {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .horizontal-form22x {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+  }
+  
+  .form-groupx {
+    display: flex;
+    flex-direction: column;
+    width: calc(50% - 20px); /* Adjust width to create a balanced layout */
+    margin-bottom: 10px; /* Add spacing between groups */
+  }
+  
+  .input-field22x {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 100%;
+    margin-top: 5px;
+  }
+  
+  .submit-button22x {
+    background-color: #19c8ff;
+    color: white;
+    padding: 10px;
+    width: 10%;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end; /* Align button with the form */
+  }
+  
+  .table-container22x {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .courses-table22x {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .courses-table22x th, .courses-table22x td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+  }
+  
+  .update-button22x, .delete-button22x {
+    background-color: #19c8ff;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .update-button22x {
+    background-color: #19c8ff;
+  }
+  
+  .delete-button22x {
+    background-color: red;
+  }
+  
+  .titlexz {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 27px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 100px;
+  }
+  
+  .main-section22x h2 {
+    color: #321bdd;
+    font-family: 'Noto Sans', sans-serif;
+  }
+  .filter-section22x {
+    margin-left: -1090px;
+  }
+  .footer-section22 {
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    margin-top: 20px;
+  }
+  

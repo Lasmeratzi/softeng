@@ -8,9 +8,9 @@ function Departments() {
   const navigate = useNavigate(); 
   const [departments, setDepartments] = useState([]);
   const [departmentData, setDepartmentData] = useState({
-    departmentId: '',
     departmentName: '',
     departmentLogo: '',
+    courseCount: '',
     departmentColor: '#ffffff' // Default color
   });
   const [isUpdating, setIsUpdating] = useState(false);
@@ -48,25 +48,33 @@ function Departments() {
     reader.readAsDataURL(file);
   };
 
+  const handleColorChange = (e) => {
+    const { value } = e.target;
+    setDepartmentData((prevData) => ({
+      ...prevData,
+      departmentColor: value
+    }));
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { departmentId, departmentLogo, departmentName, departmentColor } = departmentData;
+    const { departmentLogo, departmentName, courseCount, departmentColor } = departmentData;
 
-    if (!departmentId || !departmentLogo || !departmentName || !departmentColor) {
+    if (!departmentLogo || !departmentName || !courseCount || !departmentColor) {
       alert("Please fill in all fields");
       return;
     }
 
     try {
       if (isUpdating) {
-        await axios.put(`http://localhost:5000/api/departments/${departmentId}`, departmentData);
+        await axios.put(`http://localhost:5000/api/departments/${departmentData.departmentId}`, departmentData);
         alert('Department updated successfully!');
         setIsUpdating(false);
       } else {
         await axios.post('http://localhost:5000/api/departments', departmentData);
         alert('Department added successfully!');
       }
-      setDepartmentData({ departmentId: '', departmentName: '', departmentLogo: '', departmentColor: '#ffffff' });
+      setDepartmentData({ departmentName: '', departmentLogo: '', courseCount: '', departmentColor: '#ffffff' });
       fetchDepartments(); // Fetch updated data after submission
     } catch (error) {
       console.error('Error:', error);
@@ -79,6 +87,7 @@ function Departments() {
       departmentId: department.department_id,
       departmentName: department.department_name,
       departmentLogo: department.department_logo,
+      courseCount: department.course_count,
       departmentColor: department.department_color
     });
     setIsUpdating(true);
@@ -106,44 +115,38 @@ function Departments() {
     navigate(path);
   };
 
+  const handleCheckCourses = () => {
+    navigate('/course'); // Navigate to the Course.js page
+  };
+
   return (
     <div className="profile-container22">
-       <nav className="events-navbar">
-  <div className="events-left-navbar">
-    <img src={logo} alt="LCCB Logo" className="events-logo" />
-    <ul className="events-nav-links">
-    <h1 className="events-site-title">LCCB NEXUS </h1>
-      <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
-      <li><a href="/events" onClick={handleNavigation('/events')}>EVENTS</a></li>
-      <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
-    </ul>
-  </div>
-  <button className="events-logout-button" onClick={handleLogout}>Log out</button>
-</nav>
+      <nav className="events-navbar">
+        <div className="events-left-navbar">
+          <img src={logo} alt="LCCB Logo" className="events-logo" />
+          <ul className="events-nav-links">
+            <h1 className="events-site-title">LCCB NEXUS</h1>
+            <li><a href="/departments" onClick={handleNavigation('/departments')}>DEPARTMENTS</a></li>
+            <li><a href="/clubs" onClick={handleNavigation('/clubs')}>CLUBS</a></li>
+            <li><a href="/course" onClick={handleNavigation('/course')}>COURSES</a></li>
+          </ul>
+        </div>
+        <button className="events-logout-button" onClick={handleLogout}>Log out</button>
+      </nav>
 
-
-      <div className="main-section22">
-        <div className="left-section22">
-          <form className="events-form22" onSubmit={handleSubmit}>
-          <h2 className="upcoming-title22">DEPARTMENTS</h2>
-            
-            <label>Department ID</label>
-            <input 
-              type="text" 
-              name="departmentId" 
-              placeholder="Department ID" 
-              value={departmentData.departmentId}
-              onChange={handleInputChange}
-              className="input-field22" 
-              readOnly={isUpdating} 
-            />
+      <div className="main-section22x">
+        <h2 className="titlexz">DEPARTMENT FORM</h2>
+        <form className="horizontal-form22x" onSubmit={handleSubmit}>
+          <div className="form-groupx">
             <label>Department Logo</label>
             <input 
               type="file" 
               accept="image/*" 
               onChange={handleFileChange}
-              className="input-field22" 
+              className="input-field22x" 
             />
+          </div>
+          <div className="form-groupx">
             <label>Department Name</label>
             <input 
               type="text" 
@@ -151,32 +154,59 @@ function Departments() {
               placeholder="Department Name" 
               value={departmentData.departmentName}
               onChange={handleInputChange}
-              className="input-field22" 
+              className="input-field22x" 
             />
-            <label>Department Color</label>
+          </div>
+          <div className="form-groupx">
+            <label>Course Count</label>
             <input 
-              type="color" 
-              name="departmentColor" 
-              value={departmentData.departmentColor}
+              type="number" 
+              name="courseCount" 
+              placeholder="Number of Courses" 
+              value={departmentData.courseCount}
               onChange={handleInputChange}
-              className="input-field22" 
+              className="input-field22x" 
             />
-            <button type="submit" className="submit-button22">
-              {isUpdating ? 'Update' : 'Submit'}
-            </button>
-          </form>
-        </div>
+          </div>
+          <div className="form-groupx">
+            <label>Department Color</label>
+            <div className="color-input-wrapperx">
+              <input 
+                type="color" 
+                name="departmentColor" 
+                value={departmentData.departmentColor}
+                onChange={handleColorChange}
+                className="input-field22x color-pickerx" 
+              />
+              <input 
+                type="text" 
+                name="departmentColor"
+                placeholder="#ffffff"
+                value={departmentData.departmentColor}
+                onChange={handleColorChange}
+                className="input-field22x color-code-inputx"
+              />
+            </div>
+          </div>
+          <button type="submit" className="submit-button22x">
+            {isUpdating ? 'Update' : 'Submit'}
+          </button>
+        </form>
         
-        <div className="right-section22">
-          <h2 className="upcoming-title22">EXISTING DEPARTMENTS</h2>
-          <table className="departments-table22">
-            
+        <h2 className="titlex">EXISTING DEPARTMENTS</h2>
+        <div className="table-container22x">
+          <table className="departments-table22x">
             <thead>
               <tr>
                 <th>ID</th>
                 <th>Logo</th>
                 <th>Name</th>
                 <th>Color</th>
+                <th>
+                  Course Count
+                  <br></br>
+                  <button onClick={handleCheckCourses} className="check-courses-button22x">Check Courses</button>
+                </th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -189,18 +219,23 @@ function Departments() {
                   <td>
                     <div style={{ width: '50px', height: '20px', backgroundColor: department.department_color }}></div>
                   </td>
+                  <td>{department.course_count}</td>
                   <td>
-                    <button className="update-button22" onClick={() => handleUpdate(department)}>Update</button>
-                    <button className="delete-button22" onClick={() => handleDelete(department.department_id)}>Delete</button>
+                    <button className="update-button22x" onClick={() => handleUpdate(department)}>Update</button>
+                    <button className="delete-button22x" onClick={() => handleDelete(department.department_id)}>Delete</button>
                   </td>
                 </tr>
               ))}
             </tbody>
-          </table>
-        </div>
+                       </table>
+                       </div>
+                     {/* Footer Section */}
+        <footer className="footer-section22">
+          <p>&copy; {new Date().getFullYear()} LCCB. All rights reserved.</p>
+        </footer>
       </div>
     </div>
-  );
-}
+               );
+             }
 
 export default Departments;
